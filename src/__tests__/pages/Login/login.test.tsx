@@ -1,8 +1,8 @@
 import React from 'react'
 import { vi } from 'vitest'
-import { Login, LoginForm } from '@/pages'
+import { Login, LoginForm } from '~/pages'
 import { faker } from '@faker-js/faker'
-import { customRender as render, userEvent, screen } from '@/utils/test'
+import { customRender as render, userEvent, screen } from '~/utils/test'
 import { waitForElementToBeRemoved } from '@testing-library/react'
 
 const buildLoginFormData = (overrides?: { username?: string; password?: string }): { username: string; password: string } => {

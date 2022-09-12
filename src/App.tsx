@@ -1,26 +1,35 @@
-import React, { useEffect } from 'react'
+import React from 'react'
+import { BrowserRouter, Navigate, Route, Routes } from 'react-router-dom'
 //
-import { Login } from '@/pages'
-import useAxios, { FETCH_STATUS } from '@/hooks/useAxios'
+import { ProtectedLayout, PublicLayout } from '~/components'
+import { AuthProvider } from '~/auth/useAuth'
+import { Profile } from '~/pages/privated'
+import { ForgotPassword, SignIn, SignUp } from '~/pages/public'
 
 function App() {
-  const { data, error, status, fetchApi } = useAxios<{
-    userId: number
-    id: number
-    title: string
-    body: string
-  }>({
-    data: undefined,
-  })
+  return (
+    <>
+      <BrowserRouter>
+        <AuthProvider>
+          <Routes>
+            {/*Public pages*/}
+            <Route path="/" element={<PublicLayout />}>
+              <Route path="/signin" element={<SignIn />} />
+              <Route path="/signup" element={<SignUp />} />
+              <Route path="/forgot" element={<ForgotPassword />} />
+              <Route path="*" element={<Navigate to="/" />} />
+            </Route>
 
-  useEffect(() => {
-    fetchApi('/posts/1', 'GET')
-  }, [fetchApi])
-
-  if (status === FETCH_STATUS.PENDING) return <h1>Pending</h1>
-  if (status === FETCH_STATUS.REJECTED) return <p>{error?.toString()}</p>
-
-  return <div>{JSON.stringify(data?.title)}</div>
+            {/*Private pages*/}
+            <Route path="/admin" element={<ProtectedLayout />}>
+              <Route path="profile" element={<Profile />} />
+              <Route path="*" element={<Navigate to="/admin" />} />
+            </Route>
+          </Routes>
+        </AuthProvider>
+      </BrowserRouter>
+    </>
+  )
 }
 
 export default App

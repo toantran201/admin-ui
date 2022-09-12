@@ -2,7 +2,7 @@ import { useCallback, useLayoutEffect, useReducer, useRef } from 'react'
 import { Method } from 'axios'
 import { stringify } from 'query-string'
 //
-import axiosClient from '@/api'
+import axiosClient from '~/api'
 
 export enum FETCH_STATUS {
   IDLE = 'IDLE',
@@ -40,7 +40,7 @@ const axiosReducerFn = <Type,>(state: AxiosInitial<Type>, action: AxiosActionRed
   }
 }
 
-const useAxios = <T,>(
+export const useAxios = <T,>(
   initialState: AxiosInitial<T>,
   reducer: (state: AxiosInitial<T>, action: AxiosActionReducer) => AxiosInitial<T> = axiosReducerFn
 ) => {
@@ -81,5 +81,3 @@ const useAxios = <T,>(
 
   return { ...state, fetchApi, dispatch }
 }
-
-export default useAxios
