@@ -1,14 +1,14 @@
 {
-    "signin": "Sign In",
-    "signup": "Sign Up",
-    "signin-with": "Sign In with",
-    "welcome-back": "Welcome back !",
-    "sigin-to-continue": "Sign in to continue ....",
-    "username": "Username",
-    "password": "Password",
-    "remember-me": "Remember me",
-    "forgot-password": "Forgot password",
-    "dont-have-account": "Don't have an account ?",
+  "signin": "Sign In",
+  "signup": "Sign Up",
+  "signin-with": "Sign In with",
+  "welcome-back": "Welcome back !",
+  "sigin-to-continue": "Sign in to continue ....",
+  "username": "Username",
+  "password": "Password",
+  "remember-me": "Remember me",
+  "forgot-password": "Forgot password",
+  "dont-have-account": "Don't have an account ?",
 
-    "required": "This is a required field"
+  "required": "This is a required field"
 }
