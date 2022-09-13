@@ -3,7 +3,14 @@ import { useNavigate } from 'react-router-dom'
 //
 import { useLocalStorage } from '~/hooks/useLocalStorage'
 
-const AuthContext = createContext<{ user: any; signin: (username: string, password: string) => void; signout: () => void } | undefined>(undefined)
+const AuthContext = createContext<
+  | {
+      user: any
+      signin: (username: string, password: string) => void
+      signout: () => void
+    }
+  | undefined
+>(undefined)
 
 type AuthProviderProps = {
   children: ReactNode

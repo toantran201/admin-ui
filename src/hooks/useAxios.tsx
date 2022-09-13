@@ -30,10 +30,18 @@ const axiosReducerFn = <Type,>(state: AxiosInitial<Type>, action: AxiosActionRed
       return { status: FETCH_STATUS.PENDING, data: undefined, error: undefined }
     }
     case FETCH_STATUS.RESOLVED: {
-      return { status: FETCH_STATUS.RESOLVED, data: action.data as Type, error: undefined }
+      return {
+        status: FETCH_STATUS.RESOLVED,
+        data: action.data as Type,
+        error: undefined,
+      }
     }
     case FETCH_STATUS.REJECTED: {
-      return { status: FETCH_STATUS.REJECTED, data: undefined, error: action.error }
+      return {
+        status: FETCH_STATUS.REJECTED,
+        data: undefined,
+        error: action.error,
+      }
     }
     default:
       return { ...state }

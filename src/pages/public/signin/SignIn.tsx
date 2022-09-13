@@ -46,14 +46,15 @@ const SignIn = () => {
           <p className="text-sm font-manrope-light text-gray-500 mt-2">{t('sigin-to-continue')}</p>
           {/* ---------------------- Form start ----------------------*/}
           <div className="mt-5">
-            <FormInput label={t('username')} prop="username" register={register} errors={errors} />
+            <FormInput label={t('username')} source="username" register={register} errors={errors} />
           </div>
           <div className="mt-5">
-            <FormInput type="password" label={t('password')} prop="password" register={register} errors={errors} />
+            <FormInput type="password" label={t('password')} source="password" register={register} errors={errors} />
           </div>
           <div className="flex items-center justify-between mt-5">
             <div className="flex items-center">
-              <Checkbox color="blue-gray" defaultChecked /> <span className="text-sm text-gray-600">{t('remember-me')}</span>
+              <Checkbox color="blue-gray" defaultChecked />{' '}
+              <span className="text-sm text-gray-600">{t('remember-me')}</span>
             </div>
             <div>
               <Link to="/forgot">
@@ -62,7 +63,6 @@ const SignIn = () => {
             </div>
           </div>
           <div className="mt-5">
-            {/* eslint-disable-next-line @typescript-eslint/no-misused-promises */}
             <Button color="blue-gray" className="w-full" onClick={handleSubmit(onSubmit)}>
               {t('signin')}
             </Button>

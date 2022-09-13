@@ -20,7 +20,12 @@ const LoginForm = ({ onSubmit }: LoginProps) => {
       </div>
       <div>
         <label htmlFor="password-field">Password</label>
-        <input id="password-field" type="password" value={password} onChange={(event) => setPassword(event.target.value)} />
+        <input
+          id="password-field"
+          type="password"
+          value={password}
+          onChange={(event) => setPassword(event.target.value)}
+        />
       </div>
       <div>
         <button onClick={handleSubmit}>Submit</button>

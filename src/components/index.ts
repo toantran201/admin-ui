@@ -5,4 +5,4 @@ export { default as ProtectedLayout } from './layout/protected-layout/ProtectedL
 export { default as PublicLayout } from './layout/public-layout/PublicLayout'
 
 //base
-export { default as FormInput } from './base/form-input/FormInput'
+export { default as FormInput } from './forms/FormInput'
