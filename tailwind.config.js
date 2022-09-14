@@ -10,6 +10,10 @@ module.exports = withMT({
       fontFamily: {
         manrope: ['Manrope-Regular'],
         'manrope-light': ['Manrope-Light']
+      },
+      backgroundColor: {
+        'primary': 'var(--backgr-primary)',
+        'secondary': 'var(--backgr-secondary)',
       }
     },
   },

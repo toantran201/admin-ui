@@ -3,13 +3,14 @@ export { default as Counter } from './Counter'
 // Layout
 export { default as ProtectedLayout } from './layout/ProtectedLayout'
 export { default as PublicLayout } from './layout/PublicLayout'
-export { default as Navbar } from './layout/Navbar'
+export { default as Navbar } from './layout/navbar/Navbar'
 
 //base
 export { default as FormInput } from './forms/FormInput'
 
 //common
-export { default as LanguagePopover } from './common/LanguagePopover'
-export { default as ProfilePopover } from './common/ProfilePopover'
-export { default as NotificationPopover } from './common/notification-popover/NotificationPopover'
-export { default as ScreenSizePopover } from './common/ScreenSizePopover'
+export { default as LanguagePopover } from './layout/navbar/LanguagePopover'
+export { default as ProfilePopover } from './layout/navbar/ProfilePopover'
+export { default as NotificationPopover } from './layout/navbar/notification-popover/NotificationPopover'
+export { default as ScreenSizePopover } from './layout/navbar/ScreenSizePopover'
+export { default as ThemeMode } from './layout/navbar/ThemeMode'
