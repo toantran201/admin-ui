@@ -1,39 +1,71 @@
-import { Button, Input, Typography } from '@material-tailwind/react'
 import { Link } from 'react-router-dom'
+import { Button, Input, Typography } from '@material-tailwind/react'
+import { FormInput } from '~/components'
+import { Resolver, useForm } from 'react-hook-form'
+import * as yup from 'yup'
+import i18next from '~/translations/i18n'
+import { yupResolver } from '@hookform/resolvers/yup'
+
+type SignUpFormData = {
+  username: string
+  password: string
+  email: string
+}
+
+const schema = yup.object({
+  email: yup.string().required(i18next.t('required')).min(8),
+  username: yup.string().required(i18next.t('required')).min(8),
+  password: yup.string().required(i18next.t('required')).min(8),
+})
 
 const SignUp = () => {
+  //0. Init
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm<SignUpFormData>({
+    mode: 'onBlur',
+    resolver: yupResolver<yup.AnyObjectSchema>(schema) as Resolver<SignUpFormData>,
+  })
+
+  //1. On submit handler
+  const onSubmit = (data: SignUpFormData) => {
+    console.log(data)
+  }
+
   return (
     <div className="relative w-[100vw] h-[100vh] bg-gray-400">
       <div className="absolute-center w-[90%] md:w-[50%] xl:w-[30%]">
-        {/*Sign in form block*/}
+        {/* --------------- Sign up form block --------------- */}
         <div className="bg-white p-8 rounded-lg text-center">
           <Typography variant="lead" color="blue-gray" className="font-manrope">
             Create New Account
           </Typography>
-          <p className="text-sm font-manrope-light text-gray-500 mt-2">Get your free velzon account now</p>
+          <p className="text-sm font-manrope-light text-gray-500 mt-2">Get your free account now</p>
           <div className="mt-5">
-            <Input label="Email" />
+            <FormInput source="email" register={register} errors={errors} label="Email" />
           </div>
           <div className="mt-5">
-            <Input label="Username" />
+            <FormInput source="username" register={register} errors={errors} label="Username" />
           </div>
           <div className="mt-5">
-            <Input label="Password" type="password" />
+            <FormInput source="password" register={register} errors={errors} label="Password" type="password" />
           </div>
           <p className="text-left mt-5 text-sm text-gray-500">
-            By registering you agree to the Velzon{' '}
-            <Link to="#" className="text-gray-900 underline">
+            By registering you agree to the .....{' '}
+            <Link to="#" className="text-gray-800 underline">
               Terms of Use
             </Link>
           </p>
           <div className="mt-5">
-            <Button color="blue-gray" className="w-full">
+            <Button color="blue-gray" className="w-full" onClick={handleSubmit(onSubmit)}>
               Sign up
             </Button>
           </div>
         </div>
+        {/* --------------- End sign up form block --------------- */}
 
-        {/* Sign up block */}
         <div className="text-center mt-8">
           <p className="text-sm text-gray-900">
             Already have an account ?{' '}

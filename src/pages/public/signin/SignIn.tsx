@@ -8,13 +8,14 @@ import * as yup from 'yup'
 //
 import { FormInput } from '~/components'
 import i18next from '~/translations/i18n'
+import { useAuth } from '~/auth/useAuth'
 
 const schema = yup.object({
   username: yup.string().required(i18next.t('required')).min(8),
   password: yup.string().required(i18next.t('required')).min(8),
 })
 
-type LoginFormData = {
+type SignInFormData = {
   username: string
   password: string
 }
@@ -22,18 +23,19 @@ type LoginFormData = {
 const SignIn = () => {
   //0. Init
   const { t } = useTranslation()
+  const { signin } = useAuth()
   const {
     register,
     handleSubmit,
     formState: { errors },
-  } = useForm<LoginFormData>({
+  } = useForm<SignInFormData>({
     mode: 'onBlur',
-    resolver: yupResolver<yup.AnyObjectSchema>(schema) as Resolver<LoginFormData>,
+    resolver: yupResolver<yup.AnyObjectSchema>(schema) as Resolver<SignInFormData>,
   })
 
   //1. Submit handler
-  const onSubmit = (data: LoginFormData) => {
-    console.log(data)
+  const onSubmit = (data: SignInFormData) => {
+    signin(data.username, data.password)
   }
 
   return (

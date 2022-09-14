@@ -2,10 +2,11 @@ import { createContext, ReactNode, useContext, useMemo } from 'react'
 import { useNavigate } from 'react-router-dom'
 //
 import { useLocalStorage } from '~/hooks/useLocalStorage'
+import { User } from '~/types'
 
 const AuthContext = createContext<
   | {
-      user: any
+      user: User | null
       signin: (username: string, password: string) => void
       signout: () => void
     }
@@ -17,7 +18,7 @@ type AuthProviderProps = {
 }
 
 export const AuthProvider = ({ children }: AuthProviderProps) => {
-  const [user, setUser] = useLocalStorage({
+  const { storedValue: user, setStorageValue: setUser } = useLocalStorage<User | null>({
     key: 'user',
     defaultValue: null,
   })
@@ -25,6 +26,7 @@ export const AuthProvider = ({ children }: AuthProviderProps) => {
 
   const signin = (username: string, password: string) => {
     //
+    setUser({ username: username, email: 'toantran201.w@gmail.com' })
     navigate('/profile')
   }
 

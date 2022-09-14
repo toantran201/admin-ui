@@ -21,6 +21,7 @@ export type AxiosInitial<Type> = {
 export type AxiosActionReducer = {
   type: string
   [key: string]: any
+  error?: Error | undefined
 }
 
 // ================ Reducer function ================//
@@ -81,7 +82,7 @@ export const useAxios = <T,>(
         })
         .catch((error) => {
           if (!mountedRef.current) return
-          dispatch({ type: FETCH_STATUS.REJECTED, error })
+          dispatch({ type: FETCH_STATUS.REJECTED, error: error as Error })
         })
     },
     [dispatch]

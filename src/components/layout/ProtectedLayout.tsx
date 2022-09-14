@@ -1,6 +1,7 @@
 import { Navigate, Outlet } from 'react-router-dom'
 //
 import { useAuth } from '~/auth/useAuth'
+import { Navbar } from '~/components'
 
 const ProtectedLayout = () => {
   const { user } = useAuth()
@@ -12,7 +13,7 @@ const ProtectedLayout = () => {
 
   return (
     <div>
-      <nav>Navbar here</nav>
+      <Navbar />
       <Outlet />
     </div>
   )

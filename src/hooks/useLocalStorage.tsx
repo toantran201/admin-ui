@@ -27,5 +27,8 @@ export const useLocalStorage = <Type,>({ key, defaultValue }: UseLocalStoragePro
     setStoredValue(newValue)
   }
 
-  return [storedValue, setStorageValue]
+  return {
+    storedValue,
+    setStorageValue,
+  }
 }
