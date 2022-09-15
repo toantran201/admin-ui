@@ -1,21 +1,28 @@
 import { Navigate, Outlet } from 'react-router-dom'
 //
 import { useAuth } from '~/auth/useAuth'
-import { Navbar } from '~/components'
+import { Navbar, Sidebar } from '~/components'
+import { CustomSidebarProvider } from '~/contexts'
 
 const ProtectedLayout = () => {
   const { user } = useAuth()
-  console.log(user)
 
   if (!user) {
     return <Navigate to="/" />
   }
 
   return (
-    <div>
-      <Navbar />
-      <Outlet />
-    </div>
+    <CustomSidebarProvider>
+      <div>
+        <aside>
+          <Sidebar />
+        </aside>
+        <main className="main-content transition-all">
+          <Navbar />
+          <Outlet />
+        </main>
+      </div>
+    </CustomSidebarProvider>
   )
 }
 

@@ -14,6 +14,9 @@ module.exports = withMT({
       backgroundColor: {
         'primary': 'var(--backgr-primary)',
         'secondary': 'var(--backgr-secondary)',
+      },
+      textColor: {
+        'title-1': 'var(--title-1)'
       }
     },
   },

@@ -2,6 +2,7 @@ import { Menu, MenuHandler, MenuItem, MenuList } from '@material-tailwind/react'
 import us from '~/assets/images/nations/us.svg'
 import vi from '~/assets/images/nations/vi.svg'
 import { useState } from 'react'
+import { useTranslation } from 'react-i18next'
 
 type Language = {
   id: number
@@ -17,10 +18,12 @@ const LANGUAGES: Language[] = [
 
 const LanguagePopover = () => {
   //0. Init
+  const { i18n } = useTranslation()
   const [selectedLanguage, setSelectedLanguage] = useState<Language>(LANGUAGES[0])
 
   //1. On menu change
-  const onMenuChange = (item: Language) => {
+  const onMenuChange = async (item: Language) => {
+    await i18n.changeLanguage(item.value)
     setSelectedLanguage(item)
   }
 
@@ -31,9 +34,9 @@ const LanguagePopover = () => {
           <img src={selectedLanguage.icon} className="rounded-md w-5 h-5" alt="avatar" />
         </button>
       </MenuHandler>
-      <MenuList className="w-full rounded-none md:w-auto">
+      <MenuList className="w-full rounded-none md:w-auto bg-secondary border-none shadow-none">
         {LANGUAGES.map((item) => (
-          <MenuItem key={item.id} className="hover:bg-blue-100" onClick={() => onMenuChange(item)}>
+          <MenuItem key={item.id} className="hover:bg-purple-100" onClick={() => onMenuChange(item)}>
             <div className="flex items-center space-x-2">
               <img src={item.icon} alt={item.label} width={25} height={25} />
               <span>{item.label}</span>

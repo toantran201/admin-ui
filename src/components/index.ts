@@ -4,6 +4,7 @@ export { default as Counter } from './Counter'
 export { default as ProtectedLayout } from './layout/ProtectedLayout'
 export { default as PublicLayout } from './layout/PublicLayout'
 export { default as Navbar } from './layout/navbar/Navbar'
+export { default as Sidebar } from './layout/sidebar/Sidebar'
 
 //base
 export { default as FormInput } from './forms/FormInput'

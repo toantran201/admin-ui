@@ -1,6 +1,7 @@
 {
   "signin": "Đăng nhập",
   "signup": "Đăng ký",
+  "signout": "Đăng xuất",
   "signin-with": "Đăng nhập với",
   "welcome-back": "Chào mừng quay trở lại !",
   "sigin-to-continue": "Đăng nhập để tiếp tục ....",
@@ -8,5 +9,10 @@
   "password": "Mật khẩu",
   "remember-me": "Lưu đăng nhập",
   "forgot-password": "Quên mật khẩu",
-  "dont-have-account": "Bạn chưa có tài khoản ?"
+  "dont-have-account": "Bạn chưa có tài khoản ?",
+
+
+  "required": "This is a required field",
+  "profile": "Trang cá nhân",
+  "welcome": "Xin chào"
 }

@@ -1,0 +1,53 @@
+[data-sidebar='small'] .sidebar {
+    @apply w-20;
+}
+
+[data-sidebar='large'] .sidebar {
+    @apply w-72;
+}
+
+
+/* ======================== Sidebar Logo ======================== */
+[data-sidebar='small'] .sidebar__logo {
+    @apply w-20;
+}
+
+[data-sidebar='large'] .sidebar__logo {
+    @apply w-72;
+}
+
+/* ======================== Sidebar group ======================== */
+[data-sidebar='large'] .sidebar__group--title {
+    @apply text-left
+}
+
+[data-sidebar='small'] .sidebar__group--title {
+    @apply text-center
+}
+
+    /* ======================== Sidebar Item ======================== */
+[data-sidebar='small'] .sidebar__item--button {
+    @apply justify-center;
+}
+
+[data-sidebar='large'] .sidebar__item--button {
+    @apply justify-between;
+}
+
+[data-sidebar='small'] .sidebar__item--name {
+    @apply hidden;
+}
+
+[data-sidebar='small'] .sidebar__item--chevron {
+    @apply hidden;
+}
+
+/* ======================== Main content ======================== */
+[data-sidebar='small'] .main-content {
+    @apply md:pl-20
+}
+
+[data-sidebar='large'] .main-content {
+    @apply md:pl-72
+}
+

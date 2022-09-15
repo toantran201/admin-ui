@@ -1,6 +1,7 @@
 {
   "signin": "Sign In",
   "signup": "Sign Up",
+  "signout": "Sign Out",
   "signin-with": "Sign In with",
   "welcome-back": "Welcome back !",
   "sigin-to-continue": "Sign in to continue ....",
@@ -10,5 +11,7 @@
   "forgot-password": "Forgot password",
   "dont-have-account": "Don't have an account ?",
 
-  "required": "This is a required field"
+  "required": "This is a required field",
+  "profile": "Profile",
+  "welcome": "Welcome"
 }

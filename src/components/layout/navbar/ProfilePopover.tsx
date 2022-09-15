@@ -1,9 +1,13 @@
 import { Menu, MenuHandler, MenuItem, MenuList } from '@material-tailwind/react'
 import { AiOutlineLogout, AiOutlineUser } from 'react-icons/all'
 import { useAuth } from '~/auth/useAuth'
+import { useTranslation } from 'react-i18next'
 
 const ProfilePopover = () => {
+  //0. Init
   const { user } = useAuth()
+  const { t } = useTranslation()
+
   return (
     <Menu placement="bottom-end">
       <MenuHandler>
@@ -16,27 +20,27 @@ const ProfilePopover = () => {
             alt="avatar"
           />
           <div className="hidden lg:block text-left ">
-            <p className="text-sm text-gray-900">{user?.username}</p>
+            <p className="text-sm text-title-1">{user?.username}</p>
             <p className="text-xs text-gray-500">Developer</p>
           </div>
         </button>
       </MenuHandler>
-      <MenuList className="w-full rounded-none md:w-auto">
+      <MenuList className="w-full rounded-none md:w-auto bg-secondary border-none shadow-none">
         <span className="text-xs lg:hidden">
-          Welcome <b>{user?.username}!</b>
+          {t('welcome')} <b>{user?.username}!</b>
         </span>
 
-        <MenuItem className="mt-2 hover:bg-blue-100">
+        <MenuItem className="mt-2 hover:bg-purple-100">
           <div className="flex items-center space-x-2">
             <AiOutlineUser className="h-6 w-6" strokeWidth={1} />
-            <span>Profile</span>
+            <span>{t('profile')}</span>
           </div>
         </MenuItem>
 
-        <MenuItem className="hover:bg-blue-100">
+        <MenuItem className="hover:bg-purple-100">
           <div className="flex items-center space-x-2">
             <AiOutlineLogout className="h-6 w-6" strokeWidth={1} />
-            <span>Sign Out</span>
+            <span>{t('signout')}</span>
           </div>
         </MenuItem>
       </MenuList>
