@@ -1,53 +1,79 @@
 [data-sidebar='small'] .sidebar {
-    @apply w-20;
+  @apply w-20;
 }
 
 [data-sidebar='large'] .sidebar {
-    @apply w-72;
+  @apply w-72;
 }
-
 
 /* ======================== Sidebar Logo ======================== */
 [data-sidebar='small'] .sidebar__logo {
-    @apply w-20;
+  @apply w-20;
 }
 
 [data-sidebar='large'] .sidebar__logo {
-    @apply w-72;
+  @apply w-72;
 }
 
 /* ======================== Sidebar group ======================== */
 [data-sidebar='large'] .sidebar__group--title {
-    @apply text-left
+  @apply text-left;
 }
 
 [data-sidebar='small'] .sidebar__group--title {
-    @apply text-center
+  @apply text-center;
 }
 
-    /* ======================== Sidebar Item ======================== */
+/* ======================== Sidebar Item ======================== */
+[data-sidebar='small'] .sidebar__item.level-0 {
+  @apply mt-3;
+}
+
+[data-sidebar='large'] .sidebar__item {
+  @apply mt-3;
+}
+
 [data-sidebar='small'] .sidebar__item--button {
-    @apply justify-center;
+  @apply justify-start py-3;
+}
+
+[data-sidebar='small'] .sidebar__item--button.has-child {
+  @apply justify-between;
+}
+
+[data-sidebar='small'] .sidebar__item--button.level-0 {
+  @apply justify-center py-2;
 }
 
 [data-sidebar='large'] .sidebar__item--button {
-    @apply justify-between;
+  @apply justify-between py-2;
 }
 
 [data-sidebar='small'] .sidebar__item--name {
-    @apply hidden;
+  @apply hidden;
 }
 
 [data-sidebar='small'] .sidebar__item--chevron {
+  @apply -rotate-90
+}
+
+[data-sidebar='small'] .sidebar__item--chevron.hide-chevron {
     @apply hidden;
 }
 
-/* ======================== Main content ======================== */
+[data-sidebar='small'] .sidebar__expand {
+  @apply hidden absolute top-0 left-[100%] bg-blue-gray-900 w-52;
+}
+
+[data-sidebar='small'] .sidebar__item:hover > .sidebar__expand {
+  @apply block;
+}
+
+  /* ======================== Main content ======================== */
 [data-sidebar='small'] .main-content {
-    @apply md:pl-20
+  @apply md:pl-20;
 }
 
 [data-sidebar='large'] .main-content {
-    @apply md:pl-72
+  @apply md:pl-72;
 }
-

@@ -1,12 +1,16 @@
-import { Menu, MenuHandler, MenuItem, MenuList } from '@material-tailwind/react'
+import { memo } from 'react'
 import { AiOutlineLogout, AiOutlineUser } from 'react-icons/all'
-import { useAuth } from '~/auth/useAuth'
 import { useTranslation } from 'react-i18next'
+import { useNavigate } from 'react-router-dom'
+import { Menu, MenuHandler, MenuItem, MenuList } from '@material-tailwind/react'
+//
+import { useAuth } from '~/auth/useAuth'
 
 const ProfilePopover = () => {
   //0. Init
   const { user } = useAuth()
   const { t } = useTranslation()
+  const navigate = useNavigate()
 
   return (
     <Menu placement="bottom-end">
@@ -30,7 +34,7 @@ const ProfilePopover = () => {
           {t('welcome')} <b>{user?.username}!</b>
         </span>
 
-        <MenuItem className="mt-2 hover:bg-purple-100">
+        <MenuItem className="mt-2 hover:bg-purple-100" onClick={() => navigate('/admin/profile')}>
           <div className="flex items-center space-x-2">
             <AiOutlineUser className="h-6 w-6" strokeWidth={1} />
             <span>{t('profile')}</span>
@@ -48,4 +52,4 @@ const ProfilePopover = () => {
   )
 }
 
-export default ProfilePopover
+export default memo(ProfilePopover)

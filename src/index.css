@@ -1,32 +1,32 @@
-@import "tailwindcss/base";
-@import "tailwindcss/components";
-@import "tailwindcss/utilities";
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
 
-@import "./sidebar/sidebar.css";
+@import './assets/styles/sidebar/sidebar.css';
 /*Fonts*/
 @font-face {
   font-family: 'Manrope-Regular';
-  src: url('src/assets/fonts/manrope/Manrope-Regular.ttf') format('truetype');
+  src: url('/src/assets/fonts/manrope/Manrope-Regular.ttf') format('truetype');
 }
 
 @font-face {
   font-family: 'Manrope-Light';
-  src: url('src/assets/fonts/manrope/Manrope-Light.ttf') format('truetype');
+  src: url('/src/assets/fonts/manrope/Manrope-Light.ttf') format('truetype');
 }
 
 @font-face {
   font-family: 'Manrope-Medium';
-  src: url('src/assets/fonts/manrope/Manrope-Medium.ttf') format('truetype');
+  src: url('/src/assets/fonts/manrope/Manrope-Medium.ttf') format('truetype');
 }
 
 @font-face {
   font-family: 'Manrope-Semibold';
-  src: url('src/assets/fonts/manrope/Manrope-Semibold.ttf') format('truetype');
+  src: url('/src/assets/fonts/manrope/Manrope-Semibold.ttf') format('truetype');
 }
 
 @font-face {
   font-family: 'Manrope-Bold';
-  src: url('src/assets/fonts/manrope/Manrope-Bold.ttf') format('truetype');
+  src: url('/src/assets/fonts/manrope/Manrope-Bold.ttf') format('truetype');
 }
 
 @layer utilities {
@@ -36,13 +36,13 @@
 }
 
 @layer base {
+  :root {
+    @apply font-manrope;
+  }
+
   body {
     min-height: 100vh;
     @apply bg-primary;
-  }
-
-  :root {
-    @apply font-manrope;
   }
 
   [data-mode='light'] {
@@ -56,16 +56,14 @@
     --backgr-primary: #1a1d21;
     --backgr-secondary: #262a2f;
 
-
     --title-1: #ced4da;
   }
 
   ::-webkit-scrollbar {
-    @apply bg-transparent h-4 w-2
+    @apply bg-transparent h-4 w-2;
   }
 
   ::-webkit-scrollbar-thumb {
     @apply bg-gray-600 rounded-lg;
   }
 }
-

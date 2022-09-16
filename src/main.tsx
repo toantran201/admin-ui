@@ -2,7 +2,7 @@ import React from 'react'
 import ReactDOM from 'react-dom/client'
 import { ThemeProvider } from '@material-tailwind/react'
 //
-import '~/assets/styles/index.css'
+import './index.css'
 import App from './App'
 import './translations/i18n'
 

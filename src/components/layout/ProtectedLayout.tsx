@@ -19,7 +19,9 @@ const ProtectedLayout = () => {
         </aside>
         <main className="main-content transition-all">
           <Navbar />
-          <Outlet />
+          <div className="p-4">
+            <Outlet />
+          </div>
         </main>
       </div>
     </CustomSidebarProvider>
