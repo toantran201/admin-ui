@@ -1,3 +1,4 @@
+import { useRef } from 'react'
 import { Link } from 'react-router-dom'
 //
 import privateRouterGroups from '~/router/router'
@@ -7,15 +8,29 @@ import SidebarGroup from './SidebarGroup'
 //images
 import logoLg from '~/assets/images/logo/logo-light.png'
 import logoSm from '~/assets/images/logo/logo-sm.png'
+import { useOutSideClick } from '~/hooks'
+import { COMMON_MOBILE_BREAKPOINT } from '~/utils/constants'
 
 const Sidebar = () => {
   //0. Init
   const {
+    toggleSidebar,
     customSidebar: { expand },
   } = useCustomSidebar()
+  const sidebarBlockRef = useRef<HTMLDivElement>(null)
+
+  useOutSideClick(
+    sidebarBlockRef,
+    () => {
+      if (window.innerWidth > COMMON_MOBILE_BREAKPOINT) return
+      toggleSidebar()
+    },
+    expand
+  )
 
   return (
     <div
+      ref={sidebarBlockRef}
       className={`
         sidebar transition-all fixed z-[9999] top-16 left-0 h-full bg-blue-gray-900
         ${expand ? 'overflow-y-scroll' : ''}

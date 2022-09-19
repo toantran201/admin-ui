@@ -1,9 +1,10 @@
 import { ElementType, memo, useEffect, useState } from 'react'
 import { BsDash, BsDot, FiChevronDown } from 'react-icons/all'
+import { useNavigate } from 'react-router-dom'
 //
 import { RouterItem } from '~/router/router'
 import { useCustomSidebar } from '~/contexts'
-import { useNavigate } from 'react-router-dom'
+import { COMMON_MOBILE_BREAKPOINT } from '~/utils/constants'
 
 type SidebarItemProps = {
   navItem: Partial<RouterItem>
@@ -14,6 +15,7 @@ const SidebarItem = ({ navItem, level }: SidebarItemProps) => {
   //0. Init
   const navigate = useNavigate()
   const {
+    toggleSidebar,
     customSidebar: { expand },
   } = useCustomSidebar()
   const [open, setOpen] = useState(false)
@@ -29,6 +31,9 @@ const SidebarItem = ({ navItem, level }: SidebarItemProps) => {
   }
 
   const onNavigate = () => {
+    if (window.innerWidth <= COMMON_MOBILE_BREAKPOINT) {
+      toggleSidebar()
+    }
     navigate(`/admin/${navItem.path as string}`)
   }
 
