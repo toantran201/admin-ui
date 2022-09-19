@@ -1,5 +1,5 @@
 [data-sidebar='small'] .sidebar {
-  @apply w-20;
+  @apply hidden md:block md:w-20;
 }
 
 [data-sidebar='large'] .sidebar {
@@ -8,7 +8,7 @@
 
 /* ======================== Sidebar Logo ======================== */
 [data-sidebar='small'] .sidebar__logo {
-  @apply w-20;
+  @apply w-0 md:w-20;
 }
 
 [data-sidebar='large'] .sidebar__logo {
@@ -54,11 +54,11 @@
 }
 
 [data-sidebar='small'] .sidebar__item--chevron {
-  @apply -rotate-90
+  @apply -rotate-90;
 }
 
 [data-sidebar='small'] .sidebar__item--chevron.hide-chevron {
-    @apply hidden;
+  @apply hidden;
 }
 
 [data-sidebar='small'] .sidebar__expand {
@@ -69,7 +69,7 @@
   @apply block;
 }
 
-  /* ======================== Main content ======================== */
+/* ======================== Main content ======================== */
 [data-sidebar='small'] .main-content {
   @apply md:pl-20;
 }

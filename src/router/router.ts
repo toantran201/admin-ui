@@ -15,7 +15,7 @@ export type RouterItem = {
 export type RouterGroup = {
   id: string
   groupName: string
-  routers: RouterItem[]
+  routers: Partial<RouterItem>[]
 }
 
 const privateRouterGroups: RouterGroup[] = [
@@ -25,28 +25,28 @@ const privateRouterGroups: RouterGroup[] = [
     routers: [
       {
         id: '11',
-        name: 'Dashboard',
+        name: 'Dashboards',
         icon: GoDashboard,
         children: [
           {
             id: '111',
-            path: 'dashboard/analytics',
+            path: 'dashboards/analytics',
             name: 'Analytics',
             element: Analytics,
           },
           {
             id: '112',
-            path: 'dashboard/crm',
+            path: 'dashboards/crm',
             name: 'CRM',
           },
           {
             id: '113',
-            path: 'dashboard/ecommerce',
+            path: 'dashboards/ecommerce',
             name: 'Ecommerce',
           },
           {
             id: '114',
-            path: 'dashboard/crypto',
+            path: 'dashboards/crypto',
             name: 'Crypto',
           },
         ],

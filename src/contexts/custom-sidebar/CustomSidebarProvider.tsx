@@ -26,7 +26,7 @@ type CustomSidebarProviderProps = {
 
 export const CustomSidebarProvider = ({ children }: CustomSidebarProviderProps) => {
   const [sideBar, setSidebar] = useState<Sidebar>({
-    expand: false,
+    expand: true,
   })
 
   useEffect(() => {
