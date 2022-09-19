@@ -26,6 +26,7 @@ const privateRouterGroups: RouterGroup[] = [
       {
         id: '11',
         name: 'Dashboards',
+        path: 'dashboards/',
         icon: GoDashboard,
         children: [
           {
@@ -54,6 +55,7 @@ const privateRouterGroups: RouterGroup[] = [
       {
         id: '12',
         name: 'Apps',
+        path: 'apps',
         icon: AiOutlineAppstoreAdd,
         children: [
           {
@@ -69,6 +71,7 @@ const privateRouterGroups: RouterGroup[] = [
           {
             id: '123',
             name: 'Email',
+            path: 'apps/email',
             children: [
               {
                 id: '1231',
@@ -100,6 +103,7 @@ const privateRouterGroups: RouterGroup[] = [
         id: '21',
         name: 'Authentication',
         icon: GoDashboard,
+        path: 'authentication',
         children: [
           {
             id: '211',

@@ -1,6 +1,6 @@
 import { ElementType, memo, useEffect, useState } from 'react'
 import { BsDash, BsDot, FiChevronDown } from 'react-icons/all'
-import { useNavigate } from 'react-router-dom'
+import { useLocation, useNavigate } from 'react-router-dom'
 //
 import { RouterItem } from '~/router/router'
 import { useCustomSidebar } from '~/contexts'
@@ -14,11 +14,15 @@ type SidebarItemProps = {
 const SidebarItem = ({ navItem, level }: SidebarItemProps) => {
   //0. Init
   const navigate = useNavigate()
+  const { pathname } = useLocation()
+  const pathConfig = pathname.slice('/admin/'.length)
   const {
     toggleSidebar,
     customSidebar: { expand },
   } = useCustomSidebar()
   const [open, setOpen] = useState(false)
+
+  const pathActive = (expand && open) || (navItem.path ? pathConfig.includes(navItem.path) : false)
 
   useEffect(() => {
     setOpen(!expand)
@@ -26,7 +30,7 @@ const SidebarItem = ({ navItem, level }: SidebarItemProps) => {
 
   //1. Toggle open
   const toggleAccordion = () => {
-    if (!expand) return
+    if (!expand || !navItem.children || navItem.children.length === 0) return
     setOpen((prev) => !prev)
   }
 
@@ -40,18 +44,24 @@ const SidebarItem = ({ navItem, level }: SidebarItemProps) => {
   //2. Render icon
   const renderIcon = () => {
     if (!expand && level !== 0) return null
+    const iconClassNames = `
+      w-5 h-5
+      ${level === 0 ? 'text-gray-500' : 'text-gray-600'}
+      ${pathActive ? 'text-gray-100' : ''}
+      group-hover:text-gray-100
+    `
     if (navItem.icon) {
       const Icon = navItem.icon as ElementType
-      return <Icon className="w-5 h-5 text-gray-100" />
+      return <Icon className={iconClassNames} />
     }
 
     switch (level) {
       case 0:
         return null
       case 1:
-        return <BsDash className="w-5 h-5 text-gray-400 group-hover:text-gray-100" />
+        return <BsDash className={iconClassNames} />
       case 2:
-        return <BsDot className="w-5 h-5 text-gray-400 group-hover:text-gray-100" />
+        return <BsDot className={iconClassNames} />
     }
   }
 
@@ -74,9 +84,12 @@ const SidebarItem = ({ navItem, level }: SidebarItemProps) => {
         >
           {renderIcon()}
           <span
-            className={`${level === 0 ? 'sidebar__item--name' : ''} ${
-              level === 0 ? 'text-gray-100' : 'text-gray-500'
-            } font-normal text-sm group-hover:text-gray-100`}
+            className={`
+              ${level === 0 ? 'sidebar__item--name' : ''}
+              ${level === 0 ? 'text-gray-500' : 'text-gray-600'}
+              ${pathActive ? 'text-gray-100' : ''}
+              font-normal text-sm group-hover:text-gray-100
+           `}
           >
             {navItem.name}
           </span>
@@ -84,9 +97,13 @@ const SidebarItem = ({ navItem, level }: SidebarItemProps) => {
 
         {navItem.children && (
           <FiChevronDown
-            className={`sidebar__item--chevron w-5 h-5
-            ${level === 0 ? 'text-gray-100 hide-chevron' : 'text-gray-400'}
-            transition-all duration-300 ${open ? 'rotate-180' : ''} group-hover:text-gray-100`}
+            className={`
+              sidebar__item--chevron w-5 h-5
+              ${level === 0 ? 'text-gray-500 hide-chevron' : 'text-gray-600'}
+              ${open ? 'rotate-180' : ''}
+              ${pathActive ? 'text-gray-100' : ''}
+              transition-all duration-400 group-hover:text-gray-100
+            `}
           />
         )}
       </button>
