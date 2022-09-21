@@ -1,0 +1,3 @@
+.reset-min-w-input > div{
+    min-width: unset;
+}

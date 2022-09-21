@@ -1,4 +1,4 @@
-import { FC, forwardRef, HTMLInputTypeAttribute } from 'react'
+import { forwardRef, HTMLInputTypeAttribute } from 'react'
 import { Input } from '@material-tailwind/react'
 import { colors } from '@material-tailwind/react/types/generic'
 
@@ -11,9 +11,10 @@ export type BaseInputProps = {
   className?: string
   placeholder?: string
   error?: boolean
+  [k: string]: any
 }
 
-const BaseInput: FC<BaseInputProps> = forwardRef<HTMLInputElement, BaseInputProps>(
+const BaseInput = forwardRef<HTMLInputElement, BaseInputProps>(
   ({ id, name, label, type, color = 'blue-gray', className, placeholder, error, ...props }, ref) => {
     return (
       <Input

@@ -1,10 +1,30 @@
-import { useDynamicTablePagination } from '~/components/base/dynamic-table/core/useDynamicTablePagination'
+import { ChangeEvent, useState } from 'react'
 import { MdKeyboardArrowLeft, MdKeyboardArrowRight } from 'react-icons/all'
+//
+import BaseInput from '~/components/base/BaseInput'
+//
+import { useDynamicTablePagination } from '../core/useDynamicTablePagination'
 
 const DTPagination = () => {
+  //0. Init
   const { page, perPage, total, setPage, setPerPage, isLoading } = useDynamicTablePagination()
+  const [goToValue, setGoToValue] = useState<string>('')
   const totalPages = Math.ceil(total / perPage)
 
+  //1. On go to
+  const onGoToPage = (e: KeyboardEvent) => {
+    if (e.key !== 'Enter') return
+    const reg = new RegExp(/^\d+$/)
+    if (reg.test(goToValue)) {
+      let pageNumber = parseInt(goToValue)
+      if (pageNumber < 1) pageNumber = 1
+      if (pageNumber > totalPages) pageNumber = totalPages
+      setPage(pageNumber)
+    }
+    setGoToValue('')
+  }
+
+  //2. Render pagination item
   const renderPages = () => {
     let arr: (number | null)[] = []
     if (totalPages < 6) {
@@ -25,14 +45,11 @@ const DTPagination = () => {
       <div className="flex space-x-2">
         {totalPages > 1 ? (
           <button
-            className={`
-            px-4 py-1 box-border border-4 bg-blue-gray-800 text-white
-            ${page <= 1 ? 'bg-blue-gray-600 border-blue-gray-600' : 'bg-blue-gray-800 border-blue-gray-800'}
-            `}
+            className={`px-4 py-1 box-border border-2 bg-white border-blue-gray-800 disabled:bg-gray-300 disabled:border-blue-gray-600`}
             onClick={() => setPage(page - 1)}
             disabled={page <= 1}
           >
-            <MdKeyboardArrowLeft />
+            <MdKeyboardArrowLeft className="text-blue-gray-800" />
           </button>
         ) : null}
 
@@ -42,8 +59,8 @@ const DTPagination = () => {
               <button
                 key={index}
                 className={`
-                  px-4 py-1 box-border border-4 border-blue-gray-800
-                  ${page === item ? 'text-blue-gray-800 bg-white' : 'bg-blue-gray-800 text-white'}
+                  px-4 py-1 box-border border-2 border-blue-gray-800
+                  ${page === item ? 'bg-blue-gray-800 text-white' : 'text-blue-gray-800 bg-white'}
                 `}
                 onClick={() => setPage(item)}
               >
@@ -55,7 +72,7 @@ const DTPagination = () => {
             <button
               key={index}
               disabled
-              className="px-4 py-1 bg-blue-gray-800 border-4 border-blue-gray-800 text-white"
+              className="px-4 py-1 text-blue-gray-800 bg-white border-2 border-blue-gray-800 disabled:bg-gray-300"
             >
               ...
             </button>
@@ -63,14 +80,11 @@ const DTPagination = () => {
         })}
         {totalPages > 1 ? (
           <button
-            className={`
-            px-4 py-1 box-border border-4 text-white
-            ${page >= totalPages ? 'bg-blue-gray-600 border-blue-gray-600' : 'bg-blue-gray-800 border-blue-gray-800'}
-            `}
+            className={`px-4 py-1 box-border border-2 bg-white border-blue-gray-800 disabled:bg-gray-300 disabled:border-blue-gray-600`}
             onClick={() => setPage(page + 1)}
             disabled={page >= totalPages}
           >
-            <MdKeyboardArrowRight />
+            <MdKeyboardArrowRight className="text-blue-gray-800" />
           </button>
         ) : null}
       </div>
@@ -78,7 +92,20 @@ const DTPagination = () => {
   }
 
   if (isLoading) return null
-  return <div>{renderPages()}</div>
+  return (
+    <div className="flex space-x-5 items-center">
+      {renderPages()}
+      <div className="reset-min-w-input">
+        <BaseInput
+          label="Go to page"
+          className="w-[100px]"
+          value={goToValue}
+          onChange={(e: ChangeEvent<HTMLInputElement>) => setGoToValue(e.target.value)}
+          onKeyPress={onGoToPage}
+        />
+      </div>
+    </div>
+  )
 }
 
 export default DTPagination

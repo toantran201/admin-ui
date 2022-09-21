@@ -4,6 +4,7 @@
 
 @import './assets/styles/sidebar/sidebar.css';
 @import './assets/styles/dynamic-table/dynamic-table.css';
+@import './assets/styles/reset-default.css';
 /*Fonts*/
 @font-face {
   font-family: 'Manrope-Regular';
