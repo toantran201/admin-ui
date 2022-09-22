@@ -1,4 +1,4 @@
-import { ChangeEvent, useState } from 'react'
+import { ChangeEvent, memo, useState } from 'react'
 import { MdKeyboardArrowLeft, MdKeyboardArrowRight } from 'react-icons/all'
 //
 import BaseInput from '~/components/base/BaseInput'
@@ -45,11 +45,11 @@ const DTPagination = () => {
       <div className="flex space-x-2">
         {totalPages > 1 ? (
           <button
-            className={`px-4 py-1 box-border border-2 bg-white border-blue-gray-800 disabled:bg-gray-300 disabled:border-blue-gray-600`}
+            className={`px-4 py-1 disabled:bg-gray-300 dark:disabled:bg-blue-gray-300`}
             onClick={() => setPage(page - 1)}
             disabled={page <= 1}
           >
-            <MdKeyboardArrowLeft className="text-blue-gray-800" />
+            <MdKeyboardArrowLeft className="text-blue-gray-800 dark:text-blue-gray-100" />
           </button>
         ) : null}
 
@@ -59,8 +59,8 @@ const DTPagination = () => {
               <button
                 key={index}
                 className={`
-                  px-4 py-1 box-border border-2 border-blue-gray-800
-                  ${page === item ? 'bg-blue-gray-800 text-white' : 'text-blue-gray-800 bg-white'}
+                  px-4 py-1
+                  ${page === item ? 'bg-blue-gray-800 text-white' : 'text-blue-gray-800 dark:text-blue-gray-100'}
                 `}
                 onClick={() => setPage(item)}
               >
@@ -72,7 +72,7 @@ const DTPagination = () => {
             <button
               key={index}
               disabled
-              className="px-4 py-1 text-blue-gray-800 bg-white border-2 border-blue-gray-800 disabled:bg-gray-300"
+              className="px-4 py-1 text-blue-gray-800 disabled:bg-gray-300 dark:disabled:bg-blue-gray-300"
             >
               ...
             </button>
@@ -80,11 +80,11 @@ const DTPagination = () => {
         })}
         {totalPages > 1 ? (
           <button
-            className={`px-4 py-1 box-border border-2 bg-white border-blue-gray-800 disabled:bg-gray-300 disabled:border-blue-gray-600`}
+            className={`px-4 py-1 disabled:bg-gray-300 dark:disabled:bg-blue-gray-300`}
             onClick={() => setPage(page + 1)}
             disabled={page >= totalPages}
           >
-            <MdKeyboardArrowRight className="text-blue-gray-800" />
+            <MdKeyboardArrowRight className="text-blue-gray-800 dark:text-blue-gray-100" />
           </button>
         ) : null}
       </div>
@@ -106,4 +106,4 @@ const DTPagination = () => {
   )
 }
 
-export default DTPagination
+export default memo(DTPagination)

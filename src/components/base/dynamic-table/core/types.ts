@@ -1,11 +1,11 @@
 export type Identifier = string | number
 
 // state
-export type DynamicTableDataProps = {
+export type DynamicTableProps = {
   data: DataRecord[]
   sort?: {
     sortBy?: string
-    sortOrder?: string
+    sortOrder?: 'asc' | 'desc' | ''
   }
   isLoading: boolean
   page: number
@@ -20,6 +20,8 @@ export type DynamicTableReducerProps = {
   page?: number
   perPage?: number
   isLoading?: boolean
+  source?: string
+  sortBy?: string
 }
 
 export type DataRecord = {

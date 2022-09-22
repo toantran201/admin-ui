@@ -5,12 +5,13 @@ import DTPagination from './DTPagination'
 import { DataRecord } from '../core/types'
 import { DynamicTableProvider } from '../core/DynamicTableContext'
 import { useDynamicTableData } from '../core/useDynamicTableData'
+import { useDynamicTableSort } from '../core/useDynamicTableSort'
+import { IoMdArrowDropdown, IoMdArrowDropup } from 'react-icons/all'
 
 export type DynamicTableHeader = {
   label: string
   source: string
   sortBy?: string
-  sortDirection?: 'asc' | 'desc'
   width?: string
 }
 
@@ -22,6 +23,9 @@ type DynamicTableProps = {
 const WrapperTable = ({ renderItem, headers }: DynamicTableProps) => {
   //0. Init
   const { data, isLoading } = useDynamicTableData()
+  const { sortBy, setSort, sortOrder } = useDynamicTableSort()
+
+  console.log('acscac', sortOrder, sortBy)
 
   //1. Render table loading rows
   const renderSkeletonRows = () => {
@@ -41,12 +45,34 @@ const WrapperTable = ({ renderItem, headers }: DynamicTableProps) => {
     )
   }
 
+  //2. On header sort click
+  const onSort = (sortBy: string | undefined) => {
+    if (!sortBy) return
+    setSort(sortBy)
+  }
+
   const renderHeaders = () => {
     return (
       <tr>
         {headers.map((h, index) => (
           <th key={index} style={{ width: h.width || 'unset' }}>
-            {h.label}
+            <button
+              className="w-full flex items-center justify-center space-x-2"
+              onClick={() => onSort(h.sortBy)}
+              disabled={!h.sortBy}
+            >
+              <p className="text-sm font-medium">{h.label}</p>
+              {h.sortBy ? (
+                <div className="flex -space-x-2">
+                  <IoMdArrowDropup
+                    className={`${sortBy === h.sortBy && sortOrder === 'asc' ? 'text-blue-gray-500' : ''}`}
+                  />
+                  <IoMdArrowDropdown
+                    className={`${sortBy === h.sortBy && sortOrder === 'desc' ? 'text-blue-gray-500' : ''}`}
+                  />
+                </div>
+              ) : null}
+            </button>
           </th>
         ))}
       </tr>

@@ -1,5 +1,5 @@
 .dynamicTable {
-  @apply w-full border-collapse text-center;
+  @apply w-full border-separate text-center;
 }
 
 .dynamicTable th,
@@ -8,7 +8,7 @@
 }
 
 .dynamicTable th {
-  @apply text-blue-gray-300;
+  @apply text-blue-gray-100;
 }
 
 .dynamicTable td .overflow-row{

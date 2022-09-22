@@ -1,7 +1,7 @@
-import { SET_DATA, SET_LOADING, SET_PAGE, SET_PER_PAGE } from './actions'
-import { DynamicTableDataProps, DynamicTableReducerProps } from './types'
+import { SET_DATA, SET_LOADING, SET_PAGE, SET_PER_PAGE, SET_SORT } from './actions'
+import { DynamicTableProps, DynamicTableReducerProps } from './types'
 
-export const dynamicTableReducerFn = (state: DynamicTableDataProps, action: DynamicTableReducerProps) => {
+export const dynamicTableReducerFn = (state: DynamicTableProps, action: DynamicTableReducerProps) => {
   switch (action.type) {
     case SET_DATA: {
       return {
@@ -29,6 +29,25 @@ export const dynamicTableReducerFn = (state: DynamicTableDataProps, action: Dyna
         ...state,
         page: 1,
         perPage: action.perPage || 10,
+      }
+    }
+    case SET_SORT: {
+      let sortOrder: 'asc' | 'desc' | '' = 'asc'
+      let sortBy = action.sortBy
+      if (state.sort && state.sort?.sortBy === action.sortBy) {
+        if (state.sort?.sortOrder === '') sortOrder = 'asc'
+        else if (state.sort?.sortOrder === 'asc') sortOrder = 'desc'
+        else {
+          sortOrder = ''
+          sortBy = ''
+        }
+      }
+      return {
+        ...state,
+        sort: {
+          sortBy,
+          sortOrder,
+        },
       }
     }
   }
