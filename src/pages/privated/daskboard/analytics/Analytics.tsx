@@ -1,19 +1,49 @@
-import DynamicTable from '~/components/base/dynamic-table/ui/DynamicTable'
+import { DynamicTable, DynamicTableHeader } from '~/components'
 import { DataRecord } from '~/components/base/dynamic-table/core/types'
 
 const Analytics = () => {
+  //0. Init
+  const headers: DynamicTableHeader[] = [
+    {
+      label: 'ID',
+      source: 'id',
+      width: '75px',
+    },
+    {
+      label: 'User ID',
+      source: 'userId',
+      width: '100px',
+    },
+    {
+      label: 'Title',
+      source: 'title',
+    },
+    {
+      label: 'Body',
+      source: 'body',
+    },
+  ]
   const renderRow = (item: DataRecord) => {
     return (
       <tr key={item.id}>
-        <td>{item.id}</td>
-        <td>{item.id}</td>
-        <td>{item.id}</td>
-        <td>{item.id}</td>
-        <td>{item.id}</td>
+        <td>
+          <p>{item.id}</p>
+        </td>
+        <td>
+          <p>{item.userId}</p>
+        </td>
+        <td>
+          <p>{item.title}</p>
+        </td>
+        <td>
+          <p className="overflow-row" style={{ maxWidth: '700px' }}>
+            {item.body}
+          </p>
+        </td>
       </tr>
     )
   }
-  return <DynamicTable renderItem={renderRow} />
+  return <DynamicTable renderItem={renderRow} headers={headers} />
 }
 
 export default Analytics

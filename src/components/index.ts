@@ -8,6 +8,9 @@ export { default as Sidebar } from './layout/sidebar/Sidebar'
 
 //base
 export { default as FormInput } from './forms/FormInput'
+export { default as DynamicTable } from './base/dynamic-table/ui/DynamicTable'
+
+export * from './base/dynamic-table/ui/DynamicTable'
 
 //common
 export { default as LanguagePopover } from './layout/navbar/LanguagePopover'

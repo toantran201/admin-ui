@@ -14,11 +14,14 @@ module.exports = withMT({
       backgroundColor: {
         'primary': 'var(--backgr-primary)',
         'secondary': 'var(--backgr-secondary)',
+        'table-row-striped': 'var(--table-row-striped)',
+        'table-row-un-striped': 'var(--table-row-un-striped)',
       },
       textColor: {
         'title-1': 'var(--title-1)'
       }
     },
   },
+  darkMode: ['class', '[data-mode="dark"]'],
   plugins: [],
 })

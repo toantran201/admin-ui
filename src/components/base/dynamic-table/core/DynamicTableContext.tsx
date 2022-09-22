@@ -28,6 +28,7 @@ export const DynamicTableProvider = ({ reducerFn = dynamicTableReducerFn, childr
   // pagination
 
   useEffect(() => {
+    let timeOutId: ReturnType<typeof setTimeout>
     const query = {
       _limit: state.perPage,
       _page: state.page,
@@ -39,11 +40,19 @@ export const DynamicTableProvider = ({ reducerFn = dynamicTableReducerFn, childr
     })
 
     axiosClient.get(`https://jsonplaceholder.typicode.com/posts?${stringify(query)}`).then((res) => {
-      dispatch({
-        type: SET_DATA,
-        data: res.data,
-      })
+      timeOutId = setTimeout(
+        () =>
+          dispatch({
+            type: SET_DATA,
+            data: res.data,
+          }),
+        1000
+      )
     })
+
+    return () => {
+      clearTimeout(timeOutId)
+    }
   }, [state.page, state.perPage])
 
   const paginationValue = useMemo(
@@ -70,7 +79,7 @@ export const DynamicTableProvider = ({ reducerFn = dynamicTableReducerFn, childr
     <DynamicTableContext.Provider value={state}>
       <DynamicTableDispatch.Provider value={dispatch}>
         <DynamicTablePaginationContext.Provider value={paginationValue}>
-          <DynamicTableDataContext.Provider value={dataValue}>{children}</DynamicTableDataContext.Provider>.
+          <DynamicTableDataContext.Provider value={dataValue}>{children}</DynamicTableDataContext.Provider>
         </DynamicTablePaginationContext.Provider>
       </DynamicTableDispatch.Provider>
     </DynamicTableContext.Provider>

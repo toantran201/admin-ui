@@ -52,6 +52,9 @@
     --backgr-secondary: #ffffff;
 
     --title-1: #495057;
+
+    --table-row-striped: #ffffff;
+    --table-row-un-striped: #f2f2f7;
   }
 
   [data-mode='dark'] {
@@ -59,6 +62,9 @@
     --backgr-secondary: #262a2f;
 
     --title-1: #ced4da;
+
+    --table-row-striped: #262a2f;
+    --table-row-un-striped: #1a1d21;
   }
 
   ::-webkit-scrollbar {

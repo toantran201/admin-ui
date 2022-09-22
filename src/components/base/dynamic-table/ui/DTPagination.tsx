@@ -90,10 +90,8 @@ const DTPagination = () => {
       </div>
     )
   }
-
-  if (isLoading) return null
   return (
-    <div className="flex space-x-5 items-center">
+    <div className="flex space-x-5 items-center justify-end">
       {renderPages()}
       <div className="reset-min-w-input">
         <BaseInput
