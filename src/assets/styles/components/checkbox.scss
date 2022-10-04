@@ -1,0 +1,220 @@
+.checkbox-group {
+  @apply flex items-center space-x-1;
+  & input {
+    @apply hidden;
+  }
+  & .check-block {
+    @apply opacity-100 border-[1px] w-6 h-6 flex items-center justify-center rounded-md;
+    & .check {
+      @apply opacity-0;
+    }
+  }
+  & label {
+    @apply flex items-center space-x-2 cursor-pointer text-base;
+  }
+  & input:checked ~ label .check-block .check {
+    @apply opacity-100;
+  }
+}
+
+/* ============= Color ============= */
+/* - Primary - */
+.checkbox-primary {
+  & .check-block {
+    @apply border-primary;
+  }
+  & input:checked ~ label .check-block {
+    @apply bg-primary;
+  }
+  & input:checked ~ label .check {
+    @apply text-white;
+  }
+
+  &.soft{
+    & .check-block {
+      @apply border-none bg-soft-primary;
+    }
+    & input:checked ~ label .check-block {
+      @apply bg-soft-primary;
+    }
+    & input:checked ~ label .check {
+      @apply text-primary;
+    }
+  }
+
+  &.outlined{
+    & input:checked ~ label .check-block {
+      @apply bg-transparent;
+    }
+    & input:checked ~ label .check {
+      @apply text-primary;
+    }
+  }
+}
+/* - Secondary - */
+.checkbox-secondary {
+  & .check-block {
+    @apply border-secondary;
+  }
+  & input:checked ~ label .check-block {
+    @apply bg-secondary;
+  }
+  & input:checked ~ label .check {
+    @apply text-white;
+  }
+
+  &.soft{
+    & .check-block {
+      @apply border-none bg-soft-secondary;
+    }
+    & input:checked ~ label .check-block {
+      @apply bg-soft-secondary;
+    }
+    & input:checked ~ label .check {
+      @apply text-secondary;
+    }
+  }
+
+  &.outlined{
+    & input:checked ~ label .check-block {
+      @apply bg-transparent;
+    }
+    & input:checked ~ label .check {
+      @apply text-secondary;
+    }
+  }
+}
+/* - Success - */
+.checkbox-success {
+  & .check-block {
+    @apply border-success;
+  }
+  & input:checked ~ label .check-block {
+    @apply bg-success;
+  }
+  & input:checked ~ label .check {
+    @apply text-white;
+  }
+
+  &.soft{
+    & .check-block {
+      @apply border-none bg-soft-success;
+    }
+    & input:checked ~ label .check-block {
+      @apply bg-soft-success;
+    }
+    & input:checked ~ label .check {
+      @apply text-success;
+    }
+  }
+
+  &.outlined{
+    & input:checked ~ label .check-block {
+      @apply bg-transparent;
+    }
+    & input:checked ~ label .check {
+      @apply text-success;
+    }
+  }
+}
+/* - Info - */
+.checkbox-info {
+  & .check-block {
+    @apply border-info;
+  }
+  & input:checked ~ label .check-block {
+    @apply bg-info;
+  }
+  & input:checked ~ label .check {
+    @apply text-white;
+  }
+
+  &.soft{
+    & .check-block {
+      @apply border-none bg-soft-info;
+    }
+    & input:checked ~ label .check-block {
+      @apply bg-soft-info;
+    }
+    & input:checked ~ label .check {
+      @apply text-info;
+    }
+  }
+
+  &.outlined{
+    & input:checked ~ label .check-block {
+      @apply bg-transparent;
+    }
+    & input:checked ~ label .check {
+      @apply text-info;
+    }
+  }
+}
+/* - Danger - */
+.checkbox-danger {
+  & .check-block {
+    @apply border-danger;
+  }
+  & input:checked ~ label .check-block {
+    @apply bg-danger;
+  }
+  & input:checked ~ label .check {
+    @apply text-white;
+  }
+
+  &.soft{
+    & .check-block {
+      @apply border-none bg-soft-danger;
+    }
+    & input:checked ~ label .check-block {
+      @apply bg-soft-danger;
+    }
+    & input:checked ~ label .check {
+      @apply text-danger;
+    }
+  }
+
+  &.outlined{
+    & input:checked ~ label .check-block {
+      @apply bg-transparent;
+    }
+    & input:checked ~ label .check {
+      @apply text-danger;
+    }
+  }
+}
+/* - Warning - */
+.checkbox-warning {
+  & .check-block {
+    @apply border-warning;
+  }
+  & input:checked ~ label .check-block {
+    @apply bg-warning;
+  }
+  & input:checked ~ label .check {
+    @apply text-white;
+  }
+
+  &.soft{
+    & .check-block {
+      @apply border-none bg-soft-warning;
+    }
+    & input:checked ~ label .check-block {
+      @apply bg-soft-warning;
+    }
+    & input:checked ~ label .check {
+      @apply text-warning;
+    }
+  }
+
+  &.outlined{
+    & input:checked ~ label .check-block {
+      @apply bg-transparent;
+    }
+    & input:checked ~ label .check {
+      @apply text-warning;
+    }
+  }
+}
+
+

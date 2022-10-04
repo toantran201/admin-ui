@@ -1,70 +1,70 @@
 .button {
-  @apply py-3 px-6 rounded-md text-white border-[1px] transition-all duration-200 hover:opacity-90 active:opacity-95;
+  @apply rounded-md border-[1px] py-3 px-6 text-white transition-all duration-200 hover:opacity-90 active:opacity-95;
 }
 
 /* ============= Color ============= */
 /* - Primary - */
 .button-primary {
-  @apply bg-primary border-primary;
-  &.soft{
-    @apply bg-soft-primary text-primary border-none hover:bg-primary hover:text-white;
+  @apply border-primary bg-primary;
+  &.soft {
+    @apply border-none bg-soft-primary text-primary hover:bg-primary hover:text-white;
   }
-  &.outlined{
+  &.outlined {
     @apply bg-transparent text-primary hover:bg-primary hover:text-white;
   }
 }
 
 /* - Secondary - */
 .button-secondary {
-  @apply bg-secondary border-secondary;
-  &.soft{
-    @apply bg-soft-secondary text-secondary border-none hover:bg-secondary hover:text-white;
+  @apply border-secondary bg-secondary;
+  &.soft {
+    @apply border-none bg-soft-secondary text-secondary hover:bg-secondary hover:text-white;
   }
-  &.outlined{
+  &.outlined {
     @apply bg-transparent text-secondary hover:bg-secondary hover:text-white;
   }
 }
 
 /* - Success - */
 .button-success {
-  @apply bg-success border-success;
-  &.soft{
-    @apply bg-soft-success text-success border-none hover:bg-success hover:text-white;
+  @apply border-success bg-success;
+  &.soft {
+    @apply border-none bg-soft-success text-success hover:bg-success hover:text-white;
   }
-  &.outlined{
+  &.outlined {
     @apply bg-transparent text-success hover:bg-success hover:text-white;
   }
 }
 
 /* - Info - */
 .button-info {
-  @apply bg-info border-info;
-  &.soft{
-    @apply bg-soft-info text-info border-none hover:bg-info hover:text-white;
+  @apply border-info bg-info;
+  &.soft {
+    @apply border-none bg-soft-info text-info hover:bg-info hover:text-white;
   }
-  &.outlined{
+  &.outlined {
     @apply bg-transparent text-info hover:bg-info hover:text-white;
   }
 }
 
 /* - Warning - */
 .button-warning {
-  @apply bg-warning border-warning;
-  &.soft{
-    @apply bg-soft-warning text-warning border-none hover:bg-warning hover:text-white;
+  @apply border-warning bg-warning;
+  &.soft {
+    @apply border-none bg-soft-warning text-warning hover:bg-warning hover:text-white;
   }
-  &.outlined{
+  &.outlined {
     @apply bg-transparent text-warning hover:bg-warning hover:text-white;
   }
 }
 
 /* - Danger - */
 .button-danger {
-  @apply bg-danger border-danger;
-  &.soft{
-    @apply bg-soft-danger text-danger border-none hover:bg-danger hover:text-white;
+  @apply border-danger bg-danger;
+  &.soft {
+    @apply border-none bg-soft-danger text-danger hover:bg-danger hover:text-white;
   }
-  &.outlined{
+  &.outlined {
     @apply bg-transparent text-danger hover:bg-danger hover:text-white;
   }
 }

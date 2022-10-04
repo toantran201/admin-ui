@@ -6,9 +6,10 @@ import { useTranslation } from 'react-i18next'
 import { yupResolver } from '@hookform/resolvers/yup'
 import * as yup from 'yup'
 //
-import { BaseButton, FormInput } from '~/components'
+import { BaseButton, BaseCheckbox, FormInput } from '~/components'
 import i18next from '~/translations/i18n'
 import { useAuth } from '~/auth/useAuth'
+import { AiOutlineLogin } from 'react-icons/all'
 
 const schema = yup.object({
   username: yup.string().required(i18next.t('required')).min(8),
@@ -54,9 +55,8 @@ const SignIn = () => {
             <FormInput type="password" label={t('password')} source="password" register={register} errors={errors} />
           </div>
           <div className="mt-5 flex items-center justify-between">
-            <div className="flex items-center">
-              {/*<Checkbox color="red" defaultChecked />{' '}*/}
-              <span className="text-sm text-gray-600">{t('remember-me')}</span>
+            <div className="flex items-center space-x-2">
+              <BaseCheckbox label={t('remember-me')} />
             </div>
             <div>
               <Link to="/forgot">
@@ -66,7 +66,10 @@ const SignIn = () => {
           </div>
           <div className="mt-5">
             <BaseButton onClick={handleSubmit(onSubmit)} fullWidth size="sm" soft={true}>
-              {t('signin')}
+              <span className="flex items-center justify-center space-x-2">
+                <AiOutlineLogin className="h-5 w-5" />
+                <span>{t('signin')}</span>
+              </span>
             </BaseButton>
           </div>
           {/*---------------------- Form end ----------------------*/}

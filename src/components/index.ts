@@ -8,6 +8,7 @@ export { default as Sidebar } from './layout/sidebar/Sidebar'
 
 //base
 export { default as BaseButton } from './base/BaseButton'
+export { default as BaseCheckbox } from './base/BaseCheckbox'
 
 //form
 export { default as FormInput } from './forms/FormInput'
