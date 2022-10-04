@@ -2,11 +2,11 @@ import { Link } from 'react-router-dom'
 import { Resolver, useForm } from 'react-hook-form'
 import { FaFacebook, FaGoogle } from 'react-icons/fa'
 import { useTranslation } from 'react-i18next'
-import { Button, Checkbox, IconButton, Typography } from '@material-tailwind/react'
+// import { Button, Checkbox, IconButton, Typography } from '@material-tailwind/react'
 import { yupResolver } from '@hookform/resolvers/yup'
 import * as yup from 'yup'
 //
-import { FormInput } from '~/components'
+import { BaseButton, FormInput } from '~/components'
 import i18next from '~/translations/i18n'
 import { useAuth } from '~/auth/useAuth'
 
@@ -39,13 +39,13 @@ const SignIn = () => {
   }
 
   return (
-    <div className="relative w-[100vw] h-[100vh] bg-gray-400">
+    <div className="relative h-[100vh] w-[100vw] bg-gray-600">
       <div className="absolute-center w-[90%] md:w-[50%] xl:w-[30%]">
-        <div className="bg-white p-8 rounded-lg text-center">
-          <Typography variant="lead" color="blue-gray" className="font-manrope">
+        <div className="rounded-lg bg-white p-8 text-center">
+          <h1 color="red" className="font-manrope">
             {t('welcome-back')}
-          </Typography>
-          <p className="text-sm font-manrope-light text-gray-500 mt-2">{t('sigin-to-continue')}</p>
+          </h1>
+          <p className="mt-2 font-manrope-light text-sm text-gray-500">{t('sigin-to-continue')}</p>
           {/* ---------------------- Form start ----------------------*/}
           <div className="mt-5">
             <FormInput label={t('username')} source="username" register={register} errors={errors} />
@@ -53,9 +53,9 @@ const SignIn = () => {
           <div className="mt-5">
             <FormInput type="password" label={t('password')} source="password" register={register} errors={errors} />
           </div>
-          <div className="flex items-center justify-between mt-5">
+          <div className="mt-5 flex items-center justify-between">
             <div className="flex items-center">
-              <Checkbox color="blue-gray" defaultChecked />{' '}
+              {/*<Checkbox color="red" defaultChecked />{' '}*/}
               <span className="text-sm text-gray-600">{t('remember-me')}</span>
             </div>
             <div>
@@ -65,30 +65,30 @@ const SignIn = () => {
             </div>
           </div>
           <div className="mt-5">
-            <Button color="blue-gray" className="w-full" onClick={handleSubmit(onSubmit)}>
+            <BaseButton onClick={handleSubmit(onSubmit)} fullWidth size="sm" soft={true}>
               {t('signin')}
-            </Button>
+            </BaseButton>
           </div>
           {/*---------------------- Form end ----------------------*/}
           <div className="mt-5">
             <p className="text-sm text-gray-700">{t('signin-with')}</p>
-            <div className="w-full flex justify-center space-x-5 mt-5">
-              <IconButton color="blue-gray">
-                <FaFacebook className="w-5 h-5" />
-              </IconButton>
-              <IconButton color="blue-gray">
-                <FaGoogle className="w-5 h-5" />
-              </IconButton>
+            <div className="mt-5 flex w-full justify-center space-x-5">
+              <button color="red">
+                <FaFacebook className="h-5 w-5" />
+              </button>
+              <button color="red">
+                <FaGoogle className="h-5 w-5" />
+              </button>
             </div>
           </div>
         </div>
 
         {/* Sign up block */}
-        <div className="text-center mt-8">
-          <p className="text-sm text-gray-900">
+        <div className="mt-8 text-center">
+          <p className="font-manrope text-sm text-gray-400">
             {t('dont-have-account')}{' '}
             <Link to="/signup">
-              <span className="inline font-manrope text-gray-900 underline">{t('signup')}</span>
+              <span className="inline underline">{t('signup')}</span>
             </Link>
           </p>
         </div>

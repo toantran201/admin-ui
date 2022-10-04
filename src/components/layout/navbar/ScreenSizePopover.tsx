@@ -20,11 +20,11 @@ const ScreenSizePopover = () => {
   }
 
   return (
-    <button className="p-3.5 group hover:bg-purple-100 rounded-full outline-none" onClick={toggleFullScreen}>
+    <button className="group rounded-full p-3.5 outline-none hover:bg-purple-100" onClick={toggleFullScreen}>
       {isFullScreen ? (
-        <BsFullscreenExit className="w-5 h-5 text-gray-600 group-hover:text-purple-600" />
+        <BsFullscreenExit className="h-5 w-5 text-gray-600 group-hover:text-purple-600" />
       ) : (
-        <BsFullscreen className="w-5 h-5 text-gray-600 group-hover:text-purple-600" />
+        <BsFullscreen className="h-5 w-5 text-gray-600 group-hover:text-purple-600" />
       )}
     </button>
   )

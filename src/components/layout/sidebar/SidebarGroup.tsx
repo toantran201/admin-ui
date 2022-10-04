@@ -8,7 +8,9 @@ type SidebarGroupProps = {
 const SidebarGroup = ({ navGroup }: SidebarGroupProps) => {
   return (
     <div className="mt-5">
-      <p className="sidebar__group--title px-5 py-2 uppercase text-gray-400 text-xs font-bold">{navGroup.groupName}</p>
+      <p className="sidebar__group--title text-over px-5 py-2 text-xs font-bold uppercase text-gray-400">
+        {navGroup.groupName}
+      </p>
       <>
         {navGroup.routers.map((r) => (
           <SidebarItem key={r.id} navItem={r} level={0} />

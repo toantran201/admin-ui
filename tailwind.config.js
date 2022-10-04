@@ -1,6 +1,5 @@
 /** @type {import('tailwindcss').Config} */
-const withMT = require("@material-tailwind/react/utils/withMT");
-module.exports = withMT({
+module.exports = {
   content: [
     "./index.html",
     "./src/**/*.{js,ts,jsx,tsx}",
@@ -12,16 +11,52 @@ module.exports = withMT({
         'manrope-light': ['Manrope-Light']
       },
       backgroundColor: {
-        'primary': 'var(--backgr-primary)',
-        'secondary': 'var(--backgr-secondary)',
+        'body': 'var(--bg-body)',
+        'nav-header': 'var(--bg-nav-header)',
+
+        'primary': 'var(--primary)',
+        'secondary': 'var(--secondary)',
+        'success': 'var(--success)',
+        'info': 'var(--info)',
+        'warning': 'var(--warning)',
+        'danger': 'var(--danger)',
+
+        'soft-primary': 'var(--soft-primary)',
+        'soft-secondary': 'var(--soft-secondary)',
+        'soft-success': 'var(--soft-success)',
+        'soft-info': 'var(--soft-info)',
+        'soft-warning': 'var(--soft-warning)',
+        'soft-danger': 'var(--soft-danger)',
+
         'table-row-striped': 'var(--table-row-striped)',
         'table-row-un-striped': 'var(--table-row-un-striped)',
       },
       textColor: {
-        'title-1': 'var(--title-1)'
+        'primary': 'var(--primary)',
+        'secondary': 'var(--secondary)',
+        'success': 'var(--success)',
+        'info': 'var(--info)',
+        'warning': 'var(--warning)',
+        'danger': 'var(--danger)',
+      },
+      borderColor: {
+        'primary': 'var(--primary)',
+        'secondary': 'var(--secondary)',
+        'success': 'var(--success)',
+        'info': 'var(--info)',
+        'warning': 'var(--warning)',
+        'danger': 'var(--danger)',
+      },
+      ringColor: {
+        'primary': 'var(--primary)',
+        'secondary': 'var(--secondary)',
+        'success': 'var(--success)',
+        'info': 'var(--info)',
+        'warning': 'var(--warning)',
+        'danger': 'var(--danger)',
       }
     },
   },
   darkMode: ['class', '[data-mode="dark"]'],
   plugins: [],
-})
+}

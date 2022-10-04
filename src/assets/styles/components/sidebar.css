@@ -62,7 +62,7 @@
 }
 
 [data-sidebar='small'] .sidebar__expand {
-  @apply hidden absolute top-0 left-[100%] bg-blue-gray-900 w-52;
+  @apply absolute top-0 left-[100%] hidden w-52 bg-red-900;
 }
 
 [data-sidebar='small'] .sidebar__item:hover > .sidebar__expand {

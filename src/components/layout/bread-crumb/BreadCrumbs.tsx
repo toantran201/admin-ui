@@ -53,14 +53,14 @@ const BreadCrumbs = () => {
 
   if (selectedRoutes && selectedRoutes.length > 0) {
     return (
-      <div className="px-5 py-3 bg-secondary">
+      <div className="bg-nav-header px-5 py-3">
         <div className="flex w-full justify-between">
-          <p className="uppercase text-lg font-bold text-gray-700">{selectedRoutes[selectedRoutes.length - 1].name}</p>
+          <p className="text-lg font-bold uppercase text-gray-700">{selectedRoutes[selectedRoutes.length - 1].name}</p>
           <div className="flex items-center space-x-1">
             {selectedRoutes.map((item, index) => (
               <div key={item.id} className="flex items-center space-x-1 text-gray-500">
                 <span className="text-sm">{item.name}</span>
-                {index !== selectedRoutes.length - 1 ? <MdKeyboardArrowRight className="w-5 h-5" /> : null}
+                {index !== selectedRoutes.length - 1 ? <MdKeyboardArrowRight className="h-5 w-5" /> : null}
               </div>
             ))}
           </div>

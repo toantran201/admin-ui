@@ -1,4 +1,5 @@
 import { ReactNode } from 'react'
+import { IoMdArrowDropdown, IoMdArrowDropup } from 'react-icons/all'
 //
 import DTPagination from './DTPagination'
 //
@@ -6,7 +7,6 @@ import { DataRecord } from '../core/types'
 import { DynamicTableProvider } from '../core/DynamicTableContext'
 import { useDynamicTableData } from '../core/useDynamicTableData'
 import { useDynamicTableSort } from '../core/useDynamicTableSort'
-import { IoMdArrowDropdown, IoMdArrowDropup } from 'react-icons/all'
 
 export type DynamicTableHeader = {
   label: string
@@ -25,8 +25,6 @@ const WrapperTable = ({ renderItem, headers }: DynamicTableProps) => {
   const { data, isLoading } = useDynamicTableData()
   const { sortBy, setSort, sortOrder } = useDynamicTableSort()
 
-  console.log('acscac', sortOrder, sortBy)
-
   //1. Render table loading rows
   const renderSkeletonRows = () => {
     const arr = new Array(10).fill(null)
@@ -36,7 +34,7 @@ const WrapperTable = ({ renderItem, headers }: DynamicTableProps) => {
           <tr key={index}>
             {headers.map((h, idx) => (
               <td key={idx}>
-                <p className="animate-pulse bg-gray-200 dark:bg-blue-gray-300 rounded-lg w-full h-5" />
+                <p className="h-5 w-full animate-pulse rounded-lg bg-gray-200 dark:bg-red-300" />
               </td>
             ))}
           </tr>
@@ -57,18 +55,16 @@ const WrapperTable = ({ renderItem, headers }: DynamicTableProps) => {
         {headers.map((h, index) => (
           <th key={index} style={{ width: h.width || 'unset' }}>
             <button
-              className="w-full flex items-center justify-center space-x-2"
+              className="flex w-full items-center justify-center space-x-2"
               onClick={() => onSort(h.sortBy)}
-              disabled={!h.sortBy}
+              disabled={!h.sortBy || isLoading}
             >
               <p className="text-sm font-medium">{h.label}</p>
               {h.sortBy ? (
                 <div className="flex -space-x-2">
-                  <IoMdArrowDropup
-                    className={`${sortBy === h.sortBy && sortOrder === 'asc' ? 'text-blue-gray-500' : ''}`}
-                  />
+                  <IoMdArrowDropup className={`${sortBy === h.sortBy && sortOrder === 'asc' ? 'text-red-500' : ''}`} />
                   <IoMdArrowDropdown
-                    className={`${sortBy === h.sortBy && sortOrder === 'desc' ? 'text-blue-gray-500' : ''}`}
+                    className={`${sortBy === h.sortBy && sortOrder === 'desc' ? 'text-red-500' : ''}`}
                   />
                 </div>
               ) : null}

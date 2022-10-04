@@ -1,6 +1,6 @@
 import { DynamicTable, DynamicTableHeader } from '~/components'
 import { DataRecord } from '~/components/base/dynamic-table/core/types'
-import { Card, CardBody } from '@material-tailwind/react'
+// import { Card, CardBody } from '@material-tailwind/react'
 
 const Analytics = () => {
   //0. Init
@@ -46,13 +46,7 @@ const Analytics = () => {
       </tr>
     )
   }
-  return (
-    <Card className="rounded-none bg-secondary">
-      <CardBody>
-        <DynamicTable renderItem={renderRow} headers={headers} />
-      </CardBody>
-    </Card>
-  )
+  return <DynamicTable renderItem={renderRow} headers={headers} />
 }
 
 export default Analytics

@@ -2,76 +2,103 @@
 @import 'tailwindcss/components';
 @import 'tailwindcss/utilities';
 
-@import './assets/styles/sidebar/sidebar.css';
-@import './assets/styles/dynamic-table/dynamic-table.css';
+/*Layout*/
+@import './assets/styles/components/sidebar.css';
+/*Component*/
+@import './assets/styles/components/dynamic-table.css';
+@import './assets/styles/components/input.scss';
+@import './assets/styles/components/button.scss';
+/*Reset*/
 @import './assets/styles/reset-default.css';
+
 /*Fonts*/
 @font-face {
-  font-family: 'Manrope-Regular';
-  src: url('/src/assets/fonts/manrope/Manrope-Regular.ttf') format('truetype');
+    font-family: 'Manrope-Regular';
+    src: url('/src/assets/fonts/manrope/Manrope-Regular.ttf') format('truetype');
 }
 
 @font-face {
-  font-family: 'Manrope-Light';
-  src: url('/src/assets/fonts/manrope/Manrope-Light.ttf') format('truetype');
+    font-family: 'Manrope-Light';
+    src: url('/src/assets/fonts/manrope/Manrope-Light.ttf') format('truetype');
 }
 
 @font-face {
-  font-family: 'Manrope-Medium';
-  src: url('/src/assets/fonts/manrope/Manrope-Medium.ttf') format('truetype');
+    font-family: 'Manrope-Medium';
+    src: url('/src/assets/fonts/manrope/Manrope-Medium.ttf') format('truetype');
 }
 
 @font-face {
-  font-family: 'Manrope-Semibold';
-  src: url('/src/assets/fonts/manrope/Manrope-Semibold.ttf') format('truetype');
+    font-family: 'Manrope-Semibold';
+    src: url('/src/assets/fonts/manrope/Manrope-Semibold.ttf') format('truetype');
 }
 
 @font-face {
-  font-family: 'Manrope-Bold';
-  src: url('/src/assets/fonts/manrope/Manrope-Bold.ttf') format('truetype');
+    font-family: 'Manrope-Bold';
+    src: url('/src/assets/fonts/manrope/Manrope-Bold.ttf') format('truetype');
 }
 
 @layer utilities {
-  .absolute-center {
-    @apply absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2;
-  }
+    .absolute-center {
+        @apply absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2;
+    }
+
+    .text-over {
+        overflow: hidden;
+        text-overflow: ellipsis;
+        display: -webkit-box;
+        -webkit-line-clamp: 1;
+        -webkit-box-orient: vertical;
+    }
 }
 
 @layer base {
-  :root {
-    @apply font-manrope;
-  }
+    :root {
+        @apply font-manrope;
 
-  body {
-    min-height: 100vh;
-    @apply bg-primary;
-  }
+        --primary: #4b38b3;
+        --secondary: #3577f1;
+        --success: #45CB85;
+        --info: #299cdb;
+        --warning: #ffbe0b;
+        --danger: #f06548;
 
-  [data-mode='light'] {
-    --backgr-primary: #f2f2f7;
-    --backgr-secondary: #ffffff;
+        --soft-primary: rgba(75, 56, 179, 0.1);
+        --soft-secondary: rgba(53, 119, 241, 0.1);
+        --soft-success: rgba(69, 203, 133, 0.1);
+        --soft-info: rgba(41, 156, 219, 0.1);
+        --soft-warning: rgba(255, 190, 11, 0.1);
+        --soft-danger: rgba(240, 101, 72, 0.1);
+    }
 
-    --title-1: #495057;
+    body {
+        min-height: 100vh;
+        @apply bg-body;
+    }
 
-    --table-row-striped: #ffffff;
-    --table-row-un-striped: #f2f2f7;
-  }
+    /* ===================== LIGHT THEME ===================== */
+    [data-mode='light'] {
+        --bg-body: #f2f2f7;
+        --bg-nav-header: #ffffff;
 
-  [data-mode='dark'] {
-    --backgr-primary: #1a1d21;
-    --backgr-secondary: #262a2f;
+        --table-row-striped: #ffffff;
+        --table-row-un-striped: #f2f2f7;
+    }
 
-    --title-1: #ced4da;
+    /* ===================== DARK THEME ===================== */
+    [data-mode='dark'] {
+        --bg-body: #1a1d21;
+        --bg-nav-header: #262a2f;
 
-    --table-row-striped: #262a2f;
-    --table-row-un-striped: #1a1d21;
-  }
+        --table-row-striped: #262a2f;
+        --table-row-un-striped: #1a1d21;
+    }
 
-  ::-webkit-scrollbar {
-    @apply bg-transparent h-4 w-2;
-  }
+    /* ===================== SCROLL BAR ===================== */
+    ::-webkit-scrollbar {
+        @apply h-4 w-2 bg-transparent;
+    }
 
-  ::-webkit-scrollbar-thumb {
-    @apply bg-gray-600 rounded-lg;
-  }
+    ::-webkit-scrollbar-thumb {
+        @apply rounded-lg bg-gray-600;
+    }
 }

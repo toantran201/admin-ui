@@ -11,6 +11,10 @@ const DTPagination = () => {
   const [goToValue, setGoToValue] = useState<string>('')
   const totalPages = Math.ceil(total / perPage)
 
+  // classnames
+  const pageItem = 'px-4 py-2 hover:bg-red-100 dark:hover:bg-red-400 text-red-800 dark:text-red-100'
+  const pageItemActive = 'px-4 py-2 hover:bg-red-100 dark:hover:bg-red-400 bg-red-800 text-white dark:text-red-100'
+
   //1. On go to
   const onGoToPage = (e: KeyboardEvent) => {
     if (e.key !== 'Enter') return
@@ -44,12 +48,8 @@ const DTPagination = () => {
     return (
       <div className="flex space-x-2">
         {totalPages > 1 ? (
-          <button
-            className={`px-4 py-1 disabled:bg-gray-300 dark:disabled:bg-blue-gray-300`}
-            onClick={() => setPage(page - 1)}
-            disabled={page <= 1}
-          >
-            <MdKeyboardArrowLeft className="text-blue-gray-800 dark:text-blue-gray-100" />
+          <button className={pageItem} onClick={() => setPage(page - 1)} disabled={page <= 1 || isLoading}>
+            <MdKeyboardArrowLeft />
           </button>
         ) : null}
 
@@ -58,40 +58,30 @@ const DTPagination = () => {
             return (
               <button
                 key={index}
-                className={`
-                  px-4 py-1
-                  ${page === item ? 'bg-blue-gray-800 text-white' : 'text-blue-gray-800 dark:text-blue-gray-100'}
-                `}
+                className={page === item ? pageItemActive : pageItem}
                 onClick={() => setPage(item)}
+                disabled={page === item || isLoading}
               >
                 {item}
               </button>
             )
           }
           return (
-            <button
-              key={index}
-              disabled
-              className="px-4 py-1 text-blue-gray-800 disabled:bg-gray-300 dark:disabled:bg-blue-gray-300"
-            >
+            <button key={index} disabled className="px-4 py-1 text-red-800 dark:text-red-100">
               ...
             </button>
           )
         })}
         {totalPages > 1 ? (
-          <button
-            className={`px-4 py-1 disabled:bg-gray-300 dark:disabled:bg-blue-gray-300`}
-            onClick={() => setPage(page + 1)}
-            disabled={page >= totalPages}
-          >
-            <MdKeyboardArrowRight className="text-blue-gray-800 dark:text-blue-gray-100" />
+          <button className={pageItem} onClick={() => setPage(page + 1)} disabled={page >= totalPages || isLoading}>
+            <MdKeyboardArrowRight />
           </button>
         ) : null}
       </div>
     )
   }
   return (
-    <div className="flex space-x-5 items-center justify-end">
+    <div className="flex items-center justify-end space-x-5">
       {renderPages()}
       <div className="reset-min-w-input">
         <BaseInput
@@ -100,6 +90,7 @@ const DTPagination = () => {
           value={goToValue}
           onChange={(e: ChangeEvent<HTMLInputElement>) => setGoToValue(e.target.value)}
           onKeyPress={onGoToPage}
+          disabled={isLoading}
         />
       </div>
     </div>

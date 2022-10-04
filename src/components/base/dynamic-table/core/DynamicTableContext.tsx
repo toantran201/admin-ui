@@ -7,7 +7,7 @@ import { DynamicTablePaginationContext } from './DynamicTablePaginationContext'
 import { DynamicTableDataContext } from './DynamicTableDataContext'
 import { SET_DATA, SET_LOADING, SET_PAGE, SET_PER_PAGE, SET_SORT } from './actions'
 import { dynamicTableReducerFn } from './dynamic-table-reducer-fn'
-import { DynamicTableSortContext } from '~/components/base/dynamic-table/core/DynamicTableSortContext'
+import { DynamicTableSortContext } from './DynamicTableSortContext'
 
 export const DynamicTableContext = createContext<DynamicTableProps | undefined>(undefined)
 export const DynamicTableDispatch = createContext<Dispatch<DynamicTableReducerProps> | undefined>(undefined)

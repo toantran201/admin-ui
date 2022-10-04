@@ -1,0 +1,103 @@
+.input {
+  & input {
+    @apply mt-1 w-full rounded-md border-[1px] p-1.5 text-base outline-none;
+  }
+
+  & .icon {
+    @apply absolute top-[57%] left-[2%] h-5 w-5;
+  }
+}
+
+/* ============= Color ============= */
+.input-primary {
+  & input {
+    @apply border-primary;
+  }
+
+  & .icon {
+    @apply text-primary;
+  }
+}
+
+.input-secondary {
+  & input {
+    @apply border-secondary;
+  }
+
+  & .icon {
+    @apply text-secondary;
+  }
+}
+
+.input-success {
+  & input {
+    @apply border-success;
+  }
+
+  & .icon {
+    @apply text-success;
+  }
+}
+
+.input-info {
+  & input {
+    @apply border-info;
+  }
+
+  & .icon {
+    @apply text-info;
+  }
+}
+
+.input-warning {
+  & input {
+    @apply border-warning;
+  }
+
+  & .icon {
+    @apply text-warning;
+  }
+}
+
+.input-danger {
+  & input {
+    @apply border-danger;
+  }
+
+  & .icon {
+    @apply text-danger;
+  }
+}
+
+/* ============= Size ============= */
+.input-sm {
+  & input {
+    @apply p-1 pl-9 text-sm;
+  }
+
+  & .icon {
+    @apply top-[56%] left-[2%] h-5 w-5;
+  }
+}
+
+.input-lg {
+  & input {
+    @apply p-3 pl-12 text-base;
+  }
+
+  & .icon {
+    @apply top-[53%] left-[2%] h-6 w-6;
+  }
+}
+
+/* ============= Error ============= */
+.input-error {
+   border-color: var(--danger) !important;
+}
+
+/* ============= Has Icon ============= */
+.has-icon {
+  & input {
+    @apply pl-10;
+  }
+}

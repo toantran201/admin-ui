@@ -72,7 +72,7 @@ const SidebarItem = ({ navItem, level }: SidebarItemProps) => {
           sidebar__item--button
           ${level === 0 ? 'level-0' : 'level-higher'}
           ${navItem.children ? 'has-child' : ''}
-          flex items-center px-5 w-full group
+          group flex w-full items-center px-5
         `}
         onClick={navItem.children ? toggleAccordion : onNavigate}
       >
@@ -88,7 +88,7 @@ const SidebarItem = ({ navItem, level }: SidebarItemProps) => {
               ${level === 0 ? 'sidebar__item--name' : ''}
               ${level === 0 ? 'text-gray-500' : 'text-gray-600'}
               ${pathActive ? 'text-gray-100' : ''}
-              font-normal text-sm group-hover:text-gray-100
+              text-sm font-normal group-hover:text-gray-100
            `}
           >
             {navItem.name}
@@ -98,18 +98,18 @@ const SidebarItem = ({ navItem, level }: SidebarItemProps) => {
         {navItem.children && (
           <FiChevronDown
             className={`
-              sidebar__item--chevron w-5 h-5
-              ${level === 0 ? 'text-gray-500 hide-chevron' : 'text-gray-600'}
+              sidebar__item--chevron h-5 w-5
+              ${level === 0 ? 'hide-chevron text-gray-500' : 'text-gray-600'}
               ${open ? 'rotate-180' : ''}
               ${pathActive ? 'text-gray-100' : ''}
-              transition-all duration-400 group-hover:text-gray-100
+              duration-400 transition-all group-hover:text-gray-100
             `}
           />
         )}
       </button>
 
       {navItem.children && (
-        <div className={`${open ? 'h-auto sidebar__expand' : 'h-0'}`}>
+        <div className={`${open ? 'sidebar__expand h-auto' : 'h-0'}`}>
           <ul className={`${open ? 'block' : 'hidden'}`}>
             {navItem.children.map((c) => (
               <SidebarItem key={c.id} navItem={c} level={level + 1} />

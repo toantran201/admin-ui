@@ -15,11 +15,11 @@ const ThemeMode = () => {
   }
 
   return (
-    <button className="p-3.5 group hover:bg-purple-100 rounded-full outline-none" onClick={toggleThemeModeChange}>
+    <button className="group rounded-full p-3.5 outline-none hover:bg-purple-100" onClick={toggleThemeModeChange}>
       {mode === THEME_LIGHT ? (
-        <BsMoon className="w-5 h-5 text-gray-600 group-hover:text-purple-600" />
+        <BsMoon className="h-5 w-5 text-gray-600 group-hover:text-purple-600" />
       ) : (
-        <BsSun className="w-5 h-5 text-gray-600 group-hover:text-purple-600" />
+        <BsSun className="h-5 w-5 text-gray-600 group-hover:text-purple-600" />
       )}
     </button>
   )

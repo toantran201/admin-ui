@@ -7,6 +7,9 @@ export { default as Navbar } from './layout/navbar/Navbar'
 export { default as Sidebar } from './layout/sidebar/Sidebar'
 
 //base
+export { default as BaseButton } from './base/BaseButton'
+
+//form
 export { default as FormInput } from './forms/FormInput'
 export { default as DynamicTable } from './base/dynamic-table/ui/DynamicTable'
 

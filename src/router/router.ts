@@ -1,7 +1,7 @@
 import { IconType } from 'react-icons'
-import { AiOutlineAppstoreAdd, GoDashboard, MdOutlineWidgets } from 'react-icons/all'
+import { AiOutlineAppstoreAdd, FaWpforms, GoDashboard, MdOutlineWidgets } from 'react-icons/all'
 //
-import { Analytics } from '~/pages/privated'
+import { Analytics, BasicElements } from '~/pages/privated'
 
 export type RouterItem = {
   id: string
@@ -19,6 +19,7 @@ export type RouterGroup = {
 }
 
 const privateRouterGroups: RouterGroup[] = [
+  // ============ Menu ============ //
   {
     id: '1',
     groupName: 'Menu',
@@ -95,6 +96,7 @@ const privateRouterGroups: RouterGroup[] = [
       },
     ],
   },
+  // ============ Pages ============ //
   {
     id: '2',
     groupName: 'Pages',
@@ -131,6 +133,27 @@ const privateRouterGroups: RouterGroup[] = [
             id: '213',
             path: 'authentication/reset-pass',
             name: 'Password reset',
+          },
+        ],
+      },
+    ],
+  },
+  // ============ Components ============ //
+  {
+    id: '3',
+    groupName: 'Components',
+    routers: [
+      {
+        id: '31',
+        name: 'Forms',
+        icon: FaWpforms,
+        path: 'forms',
+        children: [
+          {
+            id: '313',
+            path: 'forms/basic-elements',
+            name: 'Basic Elements',
+            element: BasicElements,
           },
         ],
       },

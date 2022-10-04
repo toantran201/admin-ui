@@ -4,14 +4,14 @@
 
 .dynamicTable th,
 .dynamicTable td {
-  @apply py-2 px-2 text-blue-gray-500 dark:text-gray-400;
+  @apply py-2 px-2 text-red-500 dark:text-gray-400;
 }
 
 .dynamicTable th {
-  @apply text-blue-gray-100;
+  @apply text-red-100;
 }
 
-.dynamicTable td .overflow-row{
+.dynamicTable td .overflow-row {
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
@@ -21,7 +21,7 @@
 }
 
 .dynamicTable thead {
-  @apply bg-blue-gray-800;
+  @apply bg-red-800;
 }
 
 .dynamicTable tbody tr:nth-child(2n) {

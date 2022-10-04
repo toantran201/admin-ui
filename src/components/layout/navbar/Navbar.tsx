@@ -10,7 +10,7 @@ const Navbar = () => {
   } = useCustomSidebar()
 
   return (
-    <nav className="w-full px-4 py-2 bg-secondary">
+    <nav className="w-full bg-nav-header px-4 py-2">
       <div className="flex items-center justify-between">
         <button onClick={toggleSidebar}>
           {expand ? (
