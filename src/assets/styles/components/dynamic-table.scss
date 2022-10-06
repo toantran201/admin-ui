@@ -1,0 +1,92 @@
+.dynamicTable {
+  @apply w-full text-center border-[1px] border-gray-300;
+
+  & td {
+    @apply py-2 px-2 text-gray-500 dark:text-gray-400 border-gray-300 border-l-[1px] border-b-[1px];
+  }
+
+  & th {
+    @apply py-2 px-2 text-white;
+  }
+
+  & .skeleton {
+    @apply h-5 w-full animate-pulse rounded-lg;
+  }
+}
+
+.dynamicTable td .overflow-row {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+  margin: auto;
+}
+/* ============= Color ============= */
+/* - Primary - */
+.dynamicTable-primary {
+  & th {
+    @apply bg-primary;
+  }
+
+  & tr:hover,& .skeleton{
+    @apply bg-soft-primary;
+  }
+}
+
+/* - Secondary - */
+.dynamicTable-secondary {
+  & th {
+    @apply bg-secondary;
+  }
+
+  & tr:hover,& .skeleton{
+    @apply bg-soft-secondary;
+  }
+}
+
+/* - Info - */
+.dynamicTable-info {
+  & th {
+    @apply bg-info;
+  }
+
+  & tr:hover,& .skeleton{
+    @apply bg-soft-info;
+  }
+}
+
+/* - Success - */
+.dynamicTable-success {
+  & th {
+    @apply bg-success;
+  }
+
+  & tr:hover,& .skeleton{
+    @apply bg-soft-success;
+  }
+}
+
+/* - Warning - */
+.dynamicTable-warning {
+  & th {
+    @apply bg-warning;
+  }
+
+  & tr:hover,& .skeleton{
+    @apply bg-soft-warning;
+  }
+}
+
+/* - Danger - */
+.dynamicTable-danger {
+  & th {
+    @apply bg-danger;
+  }
+
+  & tr:hover,& .skeleton{
+    @apply bg-soft-danger;
+  }
+}
+
+

@@ -5,10 +5,11 @@
 /*Layout*/
 @import './assets/styles/components/sidebar.css';
 /*Component*/
-@import './assets/styles/components/dynamic-table.css';
+@import './assets/styles/components/dynamic-table.scss';
 @import './assets/styles/components/input.scss';
 @import './assets/styles/components/button.scss';
 @import './assets/styles/components/checkbox.scss';
+@import './assets/styles/components/pagination.scss';
 /*Reset*/
 @import './assets/styles/reset-default.css';
 
@@ -81,6 +82,8 @@
     --bg-body: #f2f2f7;
     --bg-nav-header: #ffffff;
 
+    --pagination-hover-bg: #eff2f7;
+
     --table-row-striped: #ffffff;
     --table-row-un-striped: #f2f2f7;
   }
@@ -89,6 +92,8 @@
   [data-mode='dark'] {
     --bg-body: #1a1d21;
     --bg-nav-header: #262a2f;
+
+    --pagination-hover-bg: #2a2f34;
 
     --table-row-striped: #262a2f;
     --table-row-un-striped: #1a1d21;

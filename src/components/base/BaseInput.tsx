@@ -1,9 +1,10 @@
-import { forwardRef, HTMLInputTypeAttribute } from 'react'
+import { ComponentProps, forwardRef, HTMLInputTypeAttribute } from 'react'
 import { IconType } from 'react-icons'
 //
 import { Color, Size } from '~/types'
+
 //
-export type BaseInputProps = {
+export interface BaseInputProps extends Omit<ComponentProps<'input'>, 'size'> {
   id?: string
   name?: string
   label?: string

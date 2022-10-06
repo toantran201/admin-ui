@@ -1,6 +1,8 @@
 import { ReactNode } from 'react'
 import { IoMdArrowDropdown, IoMdArrowDropup } from 'react-icons/all'
 //
+import { Color } from '~/types'
+//
 import DTPagination from './DTPagination'
 //
 import { DataRecord } from '../core/types'
@@ -18,12 +20,16 @@ export type DynamicTableHeader = {
 type DynamicTableProps = {
   renderItem: (item: DataRecord) => ReactNode
   headers: DynamicTableHeader[]
+  color?: Color
 }
 
-const WrapperTable = ({ renderItem, headers }: DynamicTableProps) => {
+const WrapperTable = ({ renderItem, headers, color = 'primary' }: DynamicTableProps) => {
   //0. Init
   const { data, isLoading } = useDynamicTableData()
   const { sortBy, setSort, sortOrder } = useDynamicTableSort()
+
+  // class
+  const colorClass = `dynamicTable-${color}`
 
   //1. Render table loading rows
   const renderSkeletonRows = () => {
@@ -34,7 +40,7 @@ const WrapperTable = ({ renderItem, headers }: DynamicTableProps) => {
           <tr key={index}>
             {headers.map((h, idx) => (
               <td key={idx}>
-                <p className="h-5 w-full animate-pulse rounded-lg bg-gray-200 dark:bg-red-300" />
+                <p className="skeleton" />
               </td>
             ))}
           </tr>
@@ -62,9 +68,9 @@ const WrapperTable = ({ renderItem, headers }: DynamicTableProps) => {
               <p className="text-sm font-medium">{h.label}</p>
               {h.sortBy ? (
                 <div className="flex -space-x-2">
-                  <IoMdArrowDropup className={`${sortBy === h.sortBy && sortOrder === 'asc' ? 'text-red-500' : ''}`} />
+                  <IoMdArrowDropup className={`${sortBy === h.sortBy && sortOrder === 'asc' ? 'text-gray-500' : ''}`} />
                   <IoMdArrowDropdown
-                    className={`${sortBy === h.sortBy && sortOrder === 'desc' ? 'text-red-500' : ''}`}
+                    className={`${sortBy === h.sortBy && sortOrder === 'desc' ? 'text-gray-500' : ''}`}
                   />
                 </div>
               ) : null}
@@ -77,13 +83,13 @@ const WrapperTable = ({ renderItem, headers }: DynamicTableProps) => {
 
   return (
     <div>
-      <table className="dynamicTable">
+      <table className={`dynamicTable ${colorClass}`}>
         <thead>{renderHeaders()}</thead>
         {!isLoading ? <tbody>{data.map((item) => renderItem(item))}</tbody> : null}
         {isLoading && renderSkeletonRows()}
       </table>
       <div className="mt-2">
-        <DTPagination />
+        <DTPagination color={color} />
       </div>
     </div>
   )

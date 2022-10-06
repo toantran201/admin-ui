@@ -7,8 +7,10 @@ export { default as Navbar } from './layout/navbar/Navbar'
 export { default as Sidebar } from './layout/sidebar/Sidebar'
 
 //base
+export { default as BaseInput } from './base/BaseInput'
 export { default as BaseButton } from './base/BaseButton'
 export { default as BaseCheckbox } from './base/BaseCheckbox'
+export { default as Pagination } from './base/Pagination'
 
 //form
 export { default as FormInput } from './forms/FormInput'

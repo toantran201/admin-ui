@@ -32,12 +32,12 @@ const Sidebar = () => {
     <div
       ref={sidebarBlockRef}
       className={`
-        sidebar fixed top-16 left-0 z-[9999] h-full bg-red-900 transition-all
+        sidebar fixed top-16 left-0 z-[9999] h-full bg-gray-900 transition-all
         ${expand ? 'overflow-y-scroll' : ''}
       `}
     >
       {/* ---------------- Logo ----------------*/}
-      <Link to="/admin" className="sidebar__logo fixed top-0 h-16 cursor-pointer bg-red-900 py-4 transition-all">
+      <Link to="/admin" className="sidebar__logo fixed top-0 h-16 cursor-pointer bg-gray-900 py-4 transition-all">
         <img src={expand ? logoLg : logoSm} alt="Logo ...." className={`${expand ? 'h-4' : 'h-8'} mx-auto`} />
       </Link>
 

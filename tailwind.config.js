@@ -28,6 +28,8 @@ module.exports = {
         'soft-warning': 'var(--soft-warning)',
         'soft-danger': 'var(--soft-danger)',
 
+        'pagination-hover-bg': 'var(--pagination-hover-bg)',
+
         'table-row-striped': 'var(--table-row-striped)',
         'table-row-un-striped': 'var(--table-row-un-striped)',
       },

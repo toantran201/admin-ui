@@ -1,0 +1,69 @@
+.pagination {
+  & .pagination__item {
+    @apply px-4 py-2 disabled:text-gray-400 hover:bg-pagination-hover-bg text-sm;
+  }
+
+  & .pagination__item--active {
+    @apply px-4 py-2 text-white;
+  }
+}
+
+.pagination-primary {
+  & .pagination__item {
+    @apply text-primary;
+  }
+
+  & .pagination__item--active {
+    @apply bg-primary;
+  }
+}
+
+.pagination-secondary {
+  & .pagination__item {
+    @apply text-secondary;
+  }
+
+  & .pagination__item--active {
+    @apply bg-secondary;
+  }
+}
+
+.pagination-success {
+  & .pagination__item {
+    @apply text-success;
+  }
+
+  & .pagination__item--active {
+    @apply bg-success;
+  }
+}
+
+.pagination-danger {
+  & .pagination__item {
+    @apply text-danger;
+  }
+
+  & .pagination__item--active {
+    @apply bg-danger;
+  }
+}
+
+.pagination-warning {
+  & .pagination__item {
+    @apply text-warning;
+  }
+
+  & .pagination__item--active {
+    @apply bg-warning;
+  }
+}
+
+.pagination-info {
+  & .pagination__item {
+    @apply text-info;
+  }
+
+  & .pagination__item--active {
+    @apply bg-info;
+  }
+}

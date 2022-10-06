@@ -1,15 +1,13 @@
 import { Link } from 'react-router-dom'
 import { Resolver, useForm } from 'react-hook-form'
-import { FaFacebook, FaGoogle } from 'react-icons/fa'
+import { AiOutlineLogin, FaFacebook, FaGoogle } from 'react-icons/all'
 import { useTranslation } from 'react-i18next'
-// import { Button, Checkbox, IconButton, Typography } from '@material-tailwind/react'
 import { yupResolver } from '@hookform/resolvers/yup'
 import * as yup from 'yup'
 //
 import { BaseButton, BaseCheckbox, FormInput } from '~/components'
 import i18next from '~/translations/i18n'
 import { useAuth } from '~/auth/useAuth'
-import { AiOutlineLogin } from 'react-icons/all'
 
 const schema = yup.object({
   username: yup.string().required(i18next.t('required')).min(8),
@@ -76,11 +74,11 @@ const SignIn = () => {
           <div className="mt-5">
             <p className="text-sm text-gray-700">{t('signin-with')}</p>
             <div className="mt-5 flex w-full justify-center space-x-5">
-              <button color="red">
-                <FaFacebook className="h-5 w-5" />
+              <button>
+                <FaFacebook className="h-5 w-5 text-blue-600" />
               </button>
-              <button color="red">
-                <FaGoogle className="h-5 w-5" />
+              <button>
+                <FaGoogle className="h-5 w-5 text-orange-600" />
               </button>
             </div>
           </div>

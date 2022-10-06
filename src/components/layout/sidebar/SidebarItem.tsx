@@ -46,7 +46,7 @@ const SidebarItem = ({ navItem, level }: SidebarItemProps) => {
     if (!expand && level !== 0) return null
     const iconClassNames = `
       w-5 h-5
-      ${level === 0 ? 'text-gray-500' : 'text-gray-600'}
+      ${level === 0 ? 'text-gray-400' : 'text-gray-500'}
       ${pathActive ? 'text-gray-100' : ''}
       group-hover:text-gray-100
     `
@@ -86,7 +86,7 @@ const SidebarItem = ({ navItem, level }: SidebarItemProps) => {
           <span
             className={`
               ${level === 0 ? 'sidebar__item--name' : ''}
-              ${level === 0 ? 'text-gray-500' : 'text-gray-600'}
+              ${level === 0 ? 'text-gray-400' : 'text-gray-500'}
               ${pathActive ? 'text-gray-100' : ''}
               text-sm font-normal group-hover:text-gray-100
            `}
@@ -99,7 +99,7 @@ const SidebarItem = ({ navItem, level }: SidebarItemProps) => {
           <FiChevronDown
             className={`
               sidebar__item--chevron h-5 w-5
-              ${level === 0 ? 'hide-chevron text-gray-500' : 'text-gray-600'}
+              ${level === 0 ? 'hide-chevron text-gray-400' : 'text-gray-500'}
               ${open ? 'rotate-180' : ''}
               ${pathActive ? 'text-gray-100' : ''}
               duration-400 transition-all group-hover:text-gray-100

@@ -46,7 +46,11 @@ const Analytics = () => {
       </tr>
     )
   }
-  return <DynamicTable renderItem={renderRow} headers={headers} />
+  return (
+    <div className="bg-nav-header p-5">
+      <DynamicTable renderItem={renderRow} headers={headers} />
+    </div>
+  )
 }
 
 export default Analytics

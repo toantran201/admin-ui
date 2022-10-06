@@ -4,13 +4,13 @@
     @apply hidden;
   }
   & .check-block {
-    @apply opacity-100 border-[1px] w-6 h-6 flex items-center justify-center rounded-md;
+    @apply flex h-6 w-6 items-center justify-center rounded-md border-[1px] opacity-100;
     & .check {
       @apply opacity-0;
     }
   }
   & label {
-    @apply flex items-center space-x-2 cursor-pointer text-base;
+    @apply flex cursor-pointer items-center space-x-2 text-base;
   }
   & input:checked ~ label .check-block .check {
     @apply opacity-100;
@@ -30,7 +30,7 @@
     @apply text-white;
   }
 
-  &.soft{
+  &.soft {
     & .check-block {
       @apply border-none bg-soft-primary;
     }
@@ -42,7 +42,7 @@
     }
   }
 
-  &.outlined{
+  &.outlined {
     & input:checked ~ label .check-block {
       @apply bg-transparent;
     }
@@ -63,7 +63,7 @@
     @apply text-white;
   }
 
-  &.soft{
+  &.soft {
     & .check-block {
       @apply border-none bg-soft-secondary;
     }
@@ -75,7 +75,7 @@
     }
   }
 
-  &.outlined{
+  &.outlined {
     & input:checked ~ label .check-block {
       @apply bg-transparent;
     }
@@ -96,7 +96,7 @@
     @apply text-white;
   }
 
-  &.soft{
+  &.soft {
     & .check-block {
       @apply border-none bg-soft-success;
     }
@@ -108,7 +108,7 @@
     }
   }
 
-  &.outlined{
+  &.outlined {
     & input:checked ~ label .check-block {
       @apply bg-transparent;
     }
@@ -129,7 +129,7 @@
     @apply text-white;
   }
 
-  &.soft{
+  &.soft {
     & .check-block {
       @apply border-none bg-soft-info;
     }
@@ -141,7 +141,7 @@
     }
   }
 
-  &.outlined{
+  &.outlined {
     & input:checked ~ label .check-block {
       @apply bg-transparent;
     }
@@ -162,7 +162,7 @@
     @apply text-white;
   }
 
-  &.soft{
+  &.soft {
     & .check-block {
       @apply border-none bg-soft-danger;
     }
@@ -174,7 +174,7 @@
     }
   }
 
-  &.outlined{
+  &.outlined {
     & input:checked ~ label .check-block {
       @apply bg-transparent;
     }
@@ -195,7 +195,7 @@
     @apply text-white;
   }
 
-  &.soft{
+  &.soft {
     & .check-block {
       @apply border-none bg-soft-warning;
     }
@@ -207,7 +207,7 @@
     }
   }
 
-  &.outlined{
+  &.outlined {
     & input:checked ~ label .check-block {
       @apply bg-transparent;
     }
@@ -216,5 +216,3 @@
     }
   }
 }
-
-
