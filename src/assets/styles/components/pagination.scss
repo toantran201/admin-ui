@@ -1,6 +1,6 @@
 .pagination {
   & .pagination__item {
-    @apply px-4 py-2 disabled:text-gray-400 hover:bg-pagination-hover-bg text-sm;
+    @apply px-4 py-2 text-sm hover:bg-pagination-hover-bg disabled:text-gray-400;
   }
 
   & .pagination__item--active {

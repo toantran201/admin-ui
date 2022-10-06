@@ -17,6 +17,8 @@ export interface BaseInputProps extends Omit<ComponentProps<'input'>, 'size'> {
   disabled?: boolean
   error?: boolean
   icon?: IconType
+  fullWidth?: boolean
+
   [k: string]: any
 }
 
@@ -35,6 +37,7 @@ const BaseInput = forwardRef<HTMLInputElement, BaseInputProps>(
       error,
       size = '',
       icon,
+      fullWidth,
       ...props
     },
     ref
@@ -47,8 +50,11 @@ const BaseInput = forwardRef<HTMLInputElement, BaseInputProps>(
     const hasIconClass = icon ? 'has-icon' : ''
 
     return (
-      <div className={`input relative text-left ${sizeClass} ${colorClass} ${hasIconClass}`} data-input="yellow">
-        <label htmlFor={id} className="text-sm">
+      <div
+        className={`input relative text-left ${sizeClass} ${colorClass} ${hasIconClass} ${fullWidth ? 'w-full' : ''}`}
+        data-input="yellow"
+      >
+        <label htmlFor={id} className="text-sm text-input-label">
           {label}
         </label>
         <input
@@ -60,6 +66,7 @@ const BaseInput = forwardRef<HTMLInputElement, BaseInputProps>(
           aria-label={label}
           className={`
             ${icon ? 'pl-10' : ''}
+            ${fullWidth ? 'w-full' : ''}
             ${className || ''} 
             ${error ? 'input-error' : ''}
           `}

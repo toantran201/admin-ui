@@ -1,7 +1,7 @@
 import { IconType } from 'react-icons'
 import { AiOutlineAppstoreAdd, FaWpforms, GoDashboard, MdOutlineWidgets } from 'react-icons/all'
 //
-import { Analytics, BasicElements } from '~/pages/privated'
+import { Analytics, BasicElements, CheckboxesRadios } from '~/pages/privated'
 
 export type RouterItem = {
   id: string
@@ -150,10 +150,16 @@ const privateRouterGroups: RouterGroup[] = [
         path: 'forms',
         children: [
           {
-            id: '313',
+            id: '311',
             path: 'forms/basic-elements',
             name: 'Basic Elements',
             element: BasicElements,
+          },
+          {
+            id: '312',
+            path: 'forms/checkboxes-radios',
+            name: 'Checkboxes & Radios',
+            element: CheckboxesRadios,
           },
         ],
       },

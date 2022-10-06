@@ -29,9 +29,6 @@ module.exports = {
         'soft-danger': 'var(--soft-danger)',
 
         'pagination-hover-bg': 'var(--pagination-hover-bg)',
-
-        'table-row-striped': 'var(--table-row-striped)',
-        'table-row-un-striped': 'var(--table-row-un-striped)',
       },
       textColor: {
         'primary': 'var(--primary)',
@@ -40,6 +37,11 @@ module.exports = {
         'info': 'var(--info)',
         'warning': 'var(--warning)',
         'danger': 'var(--danger)',
+
+        'input-label': 'var(--input-label)',
+        'input-content': 'var(--input-content)',
+
+        'heading': 'var(--heading)',
       },
       borderColor: {
         'primary': 'var(--primary)',

@@ -42,13 +42,20 @@ const SignUp = () => {
           <h3>Create New Account</h3>
           <p className="mt-2 font-manrope-light text-sm text-gray-500">Get your free account now</p>
           <div className="mt-5">
-            <FormInput source="email" register={register} errors={errors} label="Email" />
+            <FormInput source="email" register={register} errors={errors} label="Email" fullWidth />
           </div>
           <div className="mt-5">
-            <FormInput source="username" register={register} errors={errors} label="Username" />
+            <FormInput source="username" register={register} errors={errors} label="Username" fullWidth />
           </div>
           <div className="mt-5">
-            <FormInput source="password" register={register} errors={errors} label="Password" type="password" />
+            <FormInput
+              source="password"
+              register={register}
+              errors={errors}
+              label="Password"
+              type="password"
+              fullWidth
+            />
           </div>
           <p className="mt-5 text-left text-sm text-gray-500">
             By registering you agree to the .....{' '}

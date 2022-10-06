@@ -18,7 +18,7 @@ const ForgotPassword = () => {
             </div>
           </div>
           <div className="mt-5">
-            <BaseInput label="Email" />
+            <BaseInput label="Email" fullWidth />
           </div>
           <div className="mt-5">
             <BaseButton fullWidth soft size="sm">

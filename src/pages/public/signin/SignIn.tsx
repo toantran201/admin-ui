@@ -47,10 +47,17 @@ const SignIn = () => {
           <p className="mt-2 font-manrope-light text-sm text-gray-500">{t('sigin-to-continue')}</p>
           {/* ---------------------- Form start ----------------------*/}
           <div className="mt-5">
-            <FormInput label={t('username')} source="username" register={register} errors={errors} />
+            <FormInput label={t('username')} source="username" register={register} errors={errors} fullWidth />
           </div>
           <div className="mt-5">
-            <FormInput type="password" label={t('password')} source="password" register={register} errors={errors} />
+            <FormInput
+              type="password"
+              label={t('password')}
+              source="password"
+              register={register}
+              errors={errors}
+              fullWidth
+            />
           </div>
           <div className="mt-5 flex items-center justify-between">
             <div className="flex items-center space-x-2">

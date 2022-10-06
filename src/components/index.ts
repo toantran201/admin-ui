@@ -10,6 +10,7 @@ export { default as Sidebar } from './layout/sidebar/Sidebar'
 export { default as BaseInput } from './base/BaseInput'
 export { default as BaseButton } from './base/BaseButton'
 export { default as BaseCheckbox } from './base/BaseCheckbox'
+export { default as BaseRadio } from './base/BaseRadio'
 export { default as Pagination } from './base/Pagination'
 
 //form

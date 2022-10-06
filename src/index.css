@@ -15,96 +15,100 @@
 
 /*Fonts*/
 @font-face {
-  font-family: 'Manrope-Regular';
-  src: url('/src/assets/fonts/manrope/Manrope-Regular.ttf') format('truetype');
+    font-family: 'Manrope-Regular';
+    src: url('/src/assets/fonts/manrope/Manrope-Regular.ttf') format('truetype');
 }
 
 @font-face {
-  font-family: 'Manrope-Light';
-  src: url('/src/assets/fonts/manrope/Manrope-Light.ttf') format('truetype');
+    font-family: 'Manrope-Light';
+    src: url('/src/assets/fonts/manrope/Manrope-Light.ttf') format('truetype');
 }
 
 @font-face {
-  font-family: 'Manrope-Medium';
-  src: url('/src/assets/fonts/manrope/Manrope-Medium.ttf') format('truetype');
+    font-family: 'Manrope-Medium';
+    src: url('/src/assets/fonts/manrope/Manrope-Medium.ttf') format('truetype');
 }
 
 @font-face {
-  font-family: 'Manrope-Semibold';
-  src: url('/src/assets/fonts/manrope/Manrope-Semibold.ttf') format('truetype');
+    font-family: 'Manrope-Semibold';
+    src: url('/src/assets/fonts/manrope/Manrope-Semibold.ttf') format('truetype');
 }
 
 @font-face {
-  font-family: 'Manrope-Bold';
-  src: url('/src/assets/fonts/manrope/Manrope-Bold.ttf') format('truetype');
+    font-family: 'Manrope-Bold';
+    src: url('/src/assets/fonts/manrope/Manrope-Bold.ttf') format('truetype');
 }
 
 @layer utilities {
-  .absolute-center {
-    @apply absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2;
-  }
+    .absolute-center {
+        @apply absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2;
+    }
 
-  .text-over {
-    overflow: hidden;
-    text-overflow: ellipsis;
-    display: -webkit-box;
-    -webkit-line-clamp: 1;
-    -webkit-box-orient: vertical;
-  }
+    .text-over {
+        overflow: hidden;
+        text-overflow: ellipsis;
+        display: -webkit-box;
+        -webkit-line-clamp: 1;
+        -webkit-box-orient: vertical;
+    }
 }
 
 @layer base {
-  :root {
-    @apply font-manrope;
+    :root {
+        @apply font-manrope;
 
-    --primary: #4b38b3;
-    --secondary: #3577f1;
-    --success: #45cb85;
-    --info: #299cdb;
-    --warning: #ffbe0b;
-    --danger: #f06548;
+        --primary: #4b38b3;
+        --secondary: #3577f1;
+        --success: #45cb85;
+        --info: #299cdb;
+        --warning: #ffbe0b;
+        --danger: #f06548;
 
-    --soft-primary: rgba(75, 56, 179, 0.1);
-    --soft-secondary: rgba(53, 119, 241, 0.1);
-    --soft-success: rgba(69, 203, 133, 0.1);
-    --soft-info: rgba(41, 156, 219, 0.1);
-    --soft-warning: rgba(255, 190, 11, 0.1);
-    --soft-danger: rgba(240, 101, 72, 0.1);
-  }
+        --soft-primary: rgba(75, 56, 179, 0.1);
+        --soft-secondary: rgba(53, 119, 241, 0.1);
+        --soft-success: rgba(69, 203, 133, 0.1);
+        --soft-info: rgba(41, 156, 219, 0.1);
+        --soft-warning: rgba(255, 190, 11, 0.1);
+        --soft-danger: rgba(240, 101, 72, 0.1);
+    }
 
-  body {
-    min-height: 100vh;
-    @apply bg-body;
-  }
+    body {
+        min-height: 100vh;
+        @apply bg-body;
+    }
 
-  /* ===================== LIGHT THEME ===================== */
-  [data-mode='light'] {
-    --bg-body: #f2f2f7;
-    --bg-nav-header: #ffffff;
+    /* ===================== LIGHT THEME ===================== */
+    [data-mode='light'] {
+        --bg-body: #f2f2f7;
+        --bg-nav-header: #ffffff;
 
-    --pagination-hover-bg: #eff2f7;
+        --pagination-hover-bg: #eff2f7;
 
-    --table-row-striped: #ffffff;
-    --table-row-un-striped: #f2f2f7;
-  }
+        --input-label: #212529;
+        --input-content: #212529;
 
-  /* ===================== DARK THEME ===================== */
-  [data-mode='dark'] {
-    --bg-body: #1a1d21;
-    --bg-nav-header: #262a2f;
+        --heading: #495057;
+    }
 
-    --pagination-hover-bg: #2a2f34;
+    /* ===================== DARK THEME ===================== */
+    [data-mode='dark'] {
+        --bg-body: #1a1d21;
+        --bg-nav-header: #262a2f;
 
-    --table-row-striped: #262a2f;
-    --table-row-un-striped: #1a1d21;
-  }
+        --pagination-hover-bg: #2a2f34;
 
-  /* ===================== SCROLL BAR ===================== */
-  ::-webkit-scrollbar {
-    @apply h-4 w-2 bg-transparent;
-  }
+        --input-label: #CED4DA;
+        --input-content: #CED4DA;
 
-  ::-webkit-scrollbar-thumb {
-    @apply rounded-lg bg-gray-600;
-  }
+        --heading: #CED4DA;
+    }
+
+    /* ===================== SCROLL BAR ===================== */
+    ::-webkit-scrollbar {
+        @apply h-4 w-2 bg-transparent;
+    }
+
+    ::-webkit-scrollbar-thumb {
+        @apply rounded-lg bg-gray-600;
+    }
 }

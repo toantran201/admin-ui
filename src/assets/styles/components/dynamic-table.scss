@@ -1,12 +1,12 @@
 .dynamicTable {
-  @apply w-full text-center border-[1px] border-gray-300;
+  @apply w-full border-[1px] border-gray-300 text-center;
 
   & td {
-    @apply py-2 px-2 text-gray-500 dark:text-gray-400 border-gray-300 border-l-[1px] border-b-[1px];
+    @apply border-l-[1px] border-b-[1px] border-gray-300 py-2 px-2 text-gray-500 dark:text-gray-400;
   }
 
   & th {
-    @apply py-2 px-2 text-white;
+    @apply py-2 px-2 text-white border-l-[1px] border-b-[1px] border-gray-300;
   }
 
   & .skeleton {
@@ -22,6 +22,7 @@
   -webkit-box-orient: vertical;
   margin: auto;
 }
+
 /* ============= Color ============= */
 /* - Primary - */
 .dynamicTable-primary {
@@ -29,7 +30,8 @@
     @apply bg-primary;
   }
 
-  & tr:hover,& .skeleton{
+  & tr:hover,
+  & .skeleton {
     @apply bg-soft-primary;
   }
 }
@@ -40,7 +42,8 @@
     @apply bg-secondary;
   }
 
-  & tr:hover,& .skeleton{
+  & tr:hover,
+  & .skeleton {
     @apply bg-soft-secondary;
   }
 }
@@ -51,7 +54,8 @@
     @apply bg-info;
   }
 
-  & tr:hover,& .skeleton{
+  & tr:hover,
+  & .skeleton {
     @apply bg-soft-info;
   }
 }
@@ -62,7 +66,8 @@
     @apply bg-success;
   }
 
-  & tr:hover,& .skeleton{
+  & tr:hover,
+  & .skeleton {
     @apply bg-soft-success;
   }
 }
@@ -73,7 +78,8 @@
     @apply bg-warning;
   }
 
-  & tr:hover,& .skeleton{
+  & tr:hover,
+  & .skeleton {
     @apply bg-soft-warning;
   }
 }
@@ -84,9 +90,8 @@
     @apply bg-danger;
   }
 
-  & tr:hover,& .skeleton{
+  & tr:hover,
+  & .skeleton {
     @apply bg-soft-danger;
   }
 }
-
-

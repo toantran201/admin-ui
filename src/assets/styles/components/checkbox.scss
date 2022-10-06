@@ -9,11 +9,18 @@
       @apply opacity-0;
     }
   }
+  &.radio .check-block{
+    @apply rounded-full
+  }
   & label {
     @apply flex cursor-pointer items-center space-x-2 text-base;
   }
   & input:checked ~ label .check-block .check {
     @apply opacity-100;
+  }
+
+  & input:disabled ~ label .check-block {
+    @apply opacity-50;
   }
 }
 
@@ -30,21 +37,21 @@
     @apply text-white;
   }
 
-  &.soft {
-    & .check-block {
-      @apply border-none bg-soft-primary;
-    }
+  &.outlined {
     & input:checked ~ label .check-block {
-      @apply bg-soft-primary;
+      @apply bg-transparent;
     }
     & input:checked ~ label .check {
       @apply text-primary;
     }
   }
 
-  &.outlined {
+  &.soft {
+    & .check-block {
+      @apply border-none bg-soft-primary;
+    }
     & input:checked ~ label .check-block {
-      @apply bg-transparent;
+      @apply bg-soft-primary;
     }
     & input:checked ~ label .check {
       @apply text-primary;
@@ -63,21 +70,21 @@
     @apply text-white;
   }
 
-  &.soft {
-    & .check-block {
-      @apply border-none bg-soft-secondary;
-    }
+  &.outlined {
     & input:checked ~ label .check-block {
-      @apply bg-soft-secondary;
+      @apply bg-transparent;
     }
     & input:checked ~ label .check {
       @apply text-secondary;
     }
   }
 
-  &.outlined {
+  &.soft {
+    & .check-block {
+      @apply border-none bg-soft-secondary;
+    }
     & input:checked ~ label .check-block {
-      @apply bg-transparent;
+      @apply bg-soft-secondary;
     }
     & input:checked ~ label .check {
       @apply text-secondary;
@@ -96,21 +103,21 @@
     @apply text-white;
   }
 
-  &.soft {
-    & .check-block {
-      @apply border-none bg-soft-success;
-    }
+  &.outlined {
     & input:checked ~ label .check-block {
-      @apply bg-soft-success;
+      @apply bg-transparent;
     }
     & input:checked ~ label .check {
       @apply text-success;
     }
   }
 
-  &.outlined {
+  &.soft {
+    & .check-block {
+      @apply border-none bg-soft-success;
+    }
     & input:checked ~ label .check-block {
-      @apply bg-transparent;
+      @apply bg-soft-success;
     }
     & input:checked ~ label .check {
       @apply text-success;
@@ -129,21 +136,21 @@
     @apply text-white;
   }
 
-  &.soft {
-    & .check-block {
-      @apply border-none bg-soft-info;
-    }
+  &.outlined {
     & input:checked ~ label .check-block {
-      @apply bg-soft-info;
+      @apply bg-transparent;
     }
     & input:checked ~ label .check {
       @apply text-info;
     }
   }
 
-  &.outlined {
+  &.soft {
+    & .check-block {
+      @apply border-none bg-soft-info;
+    }
     & input:checked ~ label .check-block {
-      @apply bg-transparent;
+      @apply bg-soft-info;
     }
     & input:checked ~ label .check {
       @apply text-info;
@@ -162,21 +169,21 @@
     @apply text-white;
   }
 
-  &.soft {
-    & .check-block {
-      @apply border-none bg-soft-danger;
-    }
+  &.outlined {
     & input:checked ~ label .check-block {
-      @apply bg-soft-danger;
+      @apply bg-transparent;
     }
     & input:checked ~ label .check {
       @apply text-danger;
     }
   }
 
-  &.outlined {
+  &.soft {
+    & .check-block {
+      @apply border-none bg-soft-danger;
+    }
     & input:checked ~ label .check-block {
-      @apply bg-transparent;
+      @apply bg-soft-danger;
     }
     & input:checked ~ label .check {
       @apply text-danger;
@@ -195,21 +202,21 @@
     @apply text-white;
   }
 
-  &.soft {
-    & .check-block {
-      @apply border-none bg-soft-warning;
-    }
+  &.outlined {
     & input:checked ~ label .check-block {
-      @apply bg-soft-warning;
+      @apply bg-transparent;
     }
     & input:checked ~ label .check {
       @apply text-warning;
     }
   }
 
-  &.outlined {
+  &.soft {
+    & .check-block {
+      @apply border-none bg-soft-warning;
+    }
     & input:checked ~ label .check-block {
-      @apply bg-transparent;
+      @apply bg-soft-warning;
     }
     & input:checked ~ label .check {
       @apply text-warning;
